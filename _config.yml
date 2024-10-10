@@ -1,0 +1,16 @@
+title: DOE IRI Program 
+description: DOE Integrated Research Infrastructure (IRI) Program
+
+markdown: kramdown
+
+plugins:
+  - jekyll-sitemap    # Adds sitemap to the website at /sitemap.xml
+  - jekyll-feed       # Adds feed to the website at /feed.xml
+  - jekyll-seo-tag    # Adds all the important SEO meta tags by default.
+
+exclude:
+  - .jekyll-cache
+  - README.md
+  - LICENSE
+
+collections:
