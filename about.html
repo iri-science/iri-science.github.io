@@ -1,0 +1,82 @@
+---
+layout: page
+permalink: /about
+title: About
+---
+
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <p>The Department of Energy's vision for Integrated Research Infrastructure (IRI) is to empower
+                    researchers to meld DOE's world-class research tools, infrastructure and user facilities seamlessly
+                    and securely in novel ways to radically accelerate discovery and innovation. This will be achieved
+                    through the seamless interoperability of research workflows, enabling researchers to gain insight
+                    from observational, experimental and simulated data. Decades of research, pilot projects, and
+                    demonstrations point to the extraordinary promise of IRI but also the intertwined technological,
+                    policy, and sociological challenges of IRI.</p>
+            </div>
+            <div class="col-12 mb-2">
+                <h3>IRI Program and Management Structure</h3>
+                <img src="/images/iri-structure.png" style="width: 80%;" />
+                <br /><br />
+                <h4>IRI Executive Committee</h4>
+                <p>The IRI Executive Committee is composed of ASCR facility directors. Their primarily responsibilities
+                    include:</p>
+                <ul>
+                    <li><strong>Scope Definition:</strong> Define the overall scope of the project based on input from
+                        the DOE SC IRI Steering Committee, ensuring that the objectives are clear, achievable, and
+                        aligned with IRI goals and facility missions and goals.</li>
+                    <li><strong>Approach Prioritization:</strong> Prioritize the activities and approaches recommended
+                        by the leadership group, determining which strategies will best achieve the IRI objectives
+                        efficiently and effectively, given facility mission and resources.</li>
+                    <li><strong>Resource Allocation:</strong> Allocate resources (people, technical) strategically,
+                        ensuring the IRI program has what it needs to succeed while efficiently using organizational
+                        assets. Certain resource allocation decisions will depend on DOE acceptance.</li>
+                    <li><strong>Ongoing Oversight:</strong> Maintain ongoing oversight of the IRI effort, monitoring
+                        progress and ensuring it remains aligned with its defined scope and objectives.</li>
+                    <li><strong>Annual Reviews:</strong> Conduct yearly reviews of the IRI progress, assessing
+                        achievements, challenges, and areas for improvement. Provide constructive feedback and
+                        adjustments to strategies as necessary in collaboration with the DOE SC IRI Steering Committee.
+                    </li>
+                    <li><strong>Risk Management:</strong> Identify potential risks and challenges of the effort,
+                        developing and implementing strategies to mitigate these risks effectively.</li>
+                    <li><strong>Communication and Coordination:</strong> Facilitate open communication and coordination
+                        between the IRI management council, stakeholders, and other relevant parties, ensuring that all
+                        are aligned and informed.</li>
+                </ul>
+
+                <div class="row no-gutters mb-5">
+                    {% for m in site.data.structure.executive %}
+                    <div class="col-lg-3 col-sm-6 author-block">
+                        <div class="author-card text-center">
+                            <img class="author-image" src="{{m.photo}}">
+                            <h4 class="mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h4>
+                            <p class="mb-0">{{m.institution}}</p>
+                            <strong>{{m.role}}</strong>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+                <h4>IRI Leadership Group</h4>
+                <p>The IRI leadership group communicates with the leads of the technical and engagement/outreach
+                    subcommittees. The IRI leadership group also reports into the IRI Executive committee and is a
+                    conduit for communication of objectives and progress. </p>
+                <div class="row no-gutters mb-5">
+                    {% for m in site.data.structure.leadership %}
+                    <div class="col-lg-3 col-sm-6 author-block">
+                        <div class="author-card text-center">
+                            <img class="author-image" src="{{m.photo}}">
+                            <h4 class="mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h4>
+                            <p class="mb-0">{{m.institution}}</p>
+                            <strong>{{m.role}}</strong>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

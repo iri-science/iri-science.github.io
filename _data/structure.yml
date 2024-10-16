@@ -1,0 +1,78 @@
+executive:
+  - name: Amber Boehnlein
+    institution: High Performance Data Facility (HPDF)
+    photo: https://www.jlab.org/sites/default/files/styles/image_436x300/public/boehnlein_a2.jpg?itok=uHev3eC5
+    url: https://www.jlab.org/about/leadership/cio
+  
+  - name: Sudip Dosanj
+    institution: National Energy Research Scientific Computing Center (NERSC)
+    photo: https://www.nersc.gov/assets/Uploads/Sudip-Dosanjh-NERSC__ScaleHeightWzE1MF0.png
+    url: https://www.nersc.gov/about/nersc-staff/center-leadership/sudip-dosanjh/
+  
+  - name: Inder Monga
+    institution: Energy Sciences Network (ESnet)
+    photo: https://www.es.net/assets/Uploads/InderMohan_Oct2023-BartNagelPhoto-5466rev-v2__ScaleWidthWzMwMF0.jpg
+    url: https://www.es.net/about/esnet-staff/esnet-leadership/inder/
+  
+  - name: Michael Papka
+    institution: Argonne Leadership Computing Facility (ALCF)
+    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/Papka%20Mike%2032179D155_1600.jpg?itok=eUgrF5yv
+    url: https://www.alcf.anl.gov/about/people/michael-e-papka
+  
+  - name: Arjun Shankar
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://nccs.ornl.gov/wp-content/uploads/2023/10/Arjun-Shankar-768x960.jpg
+    url: https://nccs.ornl.gov/about/director/
+  
+leadership:
+  - name: Debbie Bard
+    institution: National Energy Research Scientific Computing Center (NERSC)
+    photo: https://www.nersc.gov/assets/Uploads/djbard-headshot__ScaleHeightWzE1MF0.jpg
+    url: https://www.nersc.gov/about/nersc-staff/center-leadership/debbie-bard/
+    role: Chair
+
+  - name: Tom Uram
+    institution: Argonne Leadership Computing Facility (ALCF)
+    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/30395D074_crop_0.jpeg?itok=fS1j_qX2
+    url: https://www.alcf.anl.gov/about/people/thomas-d-uram
+    role: Vice-Chair
+
+  - name: Rachana Ananthakrishnan
+    institution: Argonne National Laboratory (ANL/Globus)
+    photo: https://www.anl.gov/sites/www/files/styles/profile_teaser_square_350px/public/Rachana_Ananthakrishnan-headshot-500x500.jpg?h=2a479378&itok=xhE2zWUf
+    url: https://www.anl.gov/profile/rachana-ananthakrishnan
+
+  - name: Wahid Bhimji
+    institution: National Energy Research Scientific Computing Center (NERSC)
+    photo: https://www.nersc.gov/assets/Uploads/25f19b0__ScaleHeightWzE1MF0.jpg
+    url: https://www.nersc.gov/about/nersc-staff/data-analytics-services/wahid-bhimji/
+
+  - name: Shane Canon
+    institution: High Performance Data Facility (HPDF)
+    photo: https://www.nersc.gov/assets/Staff-Images/Shane-Canon-2024__ScaleHeightWzE1MF0.jpg
+    url: https://www.nersc.gov/about/nersc-staff/data-science-engagement-group/shane-canon/
+
+  - name: Rafael Ferreira da Silva
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://rafaelsilva.com/assets/images/2022-rafael-ferreira-da-silva-high-resolution.jpg
+    url: https://rafaelsilva.com
+
+  - name: Chin Guok
+    institution: Energy Sciences Network (ESnet)
+    photo: https://www.es.net/assets/Uploads/CGuok_Headshot_20240807__ScaleWidthWzMwMF0.png
+    url: https://www.es.net/about/esnet-staff/esnet-leadership/Chin-Guok/
+
+  - name: Graham Heyes
+    institution: High Performance Data Facility (HPDF)
+    photo: https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=KEoTrtwAAAAJ&citpid=2
+    url: https://coda.jlab.org/drupal/content/about-us
+
+  - name: John MacAuley
+    institution: Energy Sciences Network (ESnet)
+    photo: https://www.es.net/assets/Uploads/MacAuley__ScaleWidthWzMwMF0.jpg
+    url: https://www.es.net/about/esnet-staff/network-services-automation/john-macauley/
+
+  - name: Sarp Oral
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2021-10/Sarp-791x1024.jpg?h=091e2e6a&itok=xiIDcW8l
+    url: https://www.ornl.gov/staff-profile/h-s-oral
