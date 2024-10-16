@@ -1,0 +1,48 @@
+outreach:
+  - name: Eli Dart
+    institution: Energy Sciences Network (ESnet)
+    photo: https://sc24.conference-program.com/wp-content/linklings_snippets/presenter_pics/wp_presenter_img_133343.jpg
+    url: https://www.es.net/about/esnet-staff/science-engagement/dart/
+    role: Chair
+
+  - name: Rafael Ferreira da Silva
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://rafaelsilva.com/assets/images/2022-rafael-ferreira-da-silva-high-resolution.jpg
+    url: https://rafaelsilva.com
+    role: Co-Chair
+
+  - name: Johannes Blaschke
+    institution: National Energy Research Scientific Computing Center (NERSC)
+    photo: https://www.nersc.gov/assets/Uploads/profile-picture__ScaleHeightWzE1MF0.png
+    url: https://www.nersc.gov/about/nersc-staff/data-science-engagement-group/johannes-blaschke/
+
+  - name: Dale Carder
+    institution: Energy Sciences Network (ESnet)
+    photo: https://www.es.net/assets/Uploads/Dale-Carder__ScaleWidthWzMwMF0.jpg
+    url: https://www.es.net/about/esnet-staff/network-engineering-and-operations/dale-carder/
+    role:
+
+  - name: Jack Deslippe
+    institution: National Energy Research Scientific Computing Center (NERSC)
+    photo: https://profiles.lbl.gov/20512-jack-deslippe/thumbnail
+    url: https://profiles.lbl.gov/20512-jack-deslippe
+
+  - name: Drew Paine
+    institution: High Performance Data Facility (HPDF)
+    photo: https://crd.lbl.gov/assets/Uploads/color-profile-pic-whitebg-slackcrop__FillWzE1MCwxNTBd.png
+    url: https://crd.lbl.gov/divisions/scidata/uds/staff/pained/
+
+  - name: Katherine M. Riley
+    institution: Argonne Leadership Computing Facility (ALCF)
+    photo: https://www.anl.gov/sites/www/files/styles/profile_teaser_square_350px/public/2021-05/Riley%20Katherine%2032496D06_1600x900.jpg?h=8abcec71&itok=6dM_XTu9
+    url: https://www.anl.gov/profile/katherine-m-riley
+
+  - name: David Rogers
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2021-07/david_rogers_profile_picture.jpeg?h=943c3076&itok=k-0OPH3-
+    url: https://www.ornl.gov/staff-profile/david-m-rogers
+
+  - name: Tom Uram
+    institution: Argonne Leadership Computing Facility (ALCF)
+    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/30395D074_crop_0.jpeg?itok=fS1j_qX2
+    url: https://www.alcf.anl.gov/about/people/thomas-d-uram

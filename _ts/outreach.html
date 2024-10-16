@@ -1,0 +1,41 @@
+---
+layout: page
+permalink: /ts/outreach
+title: Outreach and Engagement Technical Subcommittee
+---
+<section class="section-sm">
+    <div class="container">
+        <p>
+            The role of the Outreach/Engagement subcommittee is to coordinate work being done with the pathfinder
+            science teams, identify common requirements and communicate to the Leadership team. This subcommittee is
+            also responsible for broader community engagement, working with science teams who wish to engage more
+            closely with IRI and bringing them into the IRI framework.
+        </p>
+        <p>
+            Over time, the set of active IRI projects will expand as resources become available. The list of initial
+            projects (pathfinder projects, workstreams) is an initial list of projects, not a complete list of projects
+            - facilities and programs that have an interest in working in this space should work with the Engagement
+            subcommittee on establishing collaboration contact points, readiness levels, requirements, and so forth.
+        </p>
+    </div>
+</section>
+
+<section class="section-sm">
+    <div class="container">
+        <div class="row no-gutters text-center">
+            <h3>Members</h3>
+        </div>
+      <div class="row no-gutters">
+        {% for m in site.data.ts.outreach %}
+        <div class="col-lg-3 col-sm-6 author-block">
+          <div class="author-card text-center">
+            <img class="author-image" src="{{m.photo}}">
+            <h4 class="mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h4>
+            <p class="mb-0">{{m.institution}}</p>
+            <strong>{{m.role}}</strong>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
