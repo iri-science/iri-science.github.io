@@ -17,3 +17,6 @@ collections:
   ts:
     output: true
     permalink: /ts/:path/
+  events:
+    output: true
+    permalink: /events/:path/
