@@ -8,7 +8,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9 mx-auto">
-                <h2 style="color: #fff">{{ page.title }}</h2>
+                <h2 style="color: #fff">{% if page.subtitle %} {{ page.subtitle }} {% else %} {{page.title}} {% endif %}</h2>
+                {% if page.category %}<h3 class="mb-5" style="color: #bbb; font-size: 1.2em; text-transform: uppercase">{{page.category}}</h3>{% endif %}
             </div>
         </div>
     </div>
