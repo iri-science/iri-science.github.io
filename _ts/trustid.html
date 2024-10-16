@@ -1,0 +1,38 @@
+---
+layout: page
+permalink: /ts/trustid
+title: Interfaces Technical Subcommittee
+subtitle: Trusted IRI Designs (TRUSTID)
+category: Technical Subcommittee
+---
+<section class="section-sm">
+  <div class="container">
+    <p>
+      The Integrated Research Infrastructure (IRI) TRUSTID Technical Subcommittee is established to enable trustworthy
+      and performant execution of cross facility workflows. This technical subcommittee's mission is to create a set of
+      design patterns and policy elements that mitigate risks, safeguard assets, and enable a trusted environment for
+      transformative open science. Cybersecurity enables open science when security architectures and technologies are
+      effectively integrated into performant and functional workflow designs from the beginning.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row no-gutters text-center">
+      <h3>Members</h3>
+    </div>
+    <div class="row no-gutters">
+      {% for m in site.data.ts.trustid %}
+      <div class="col-lg-3 col-sm-6 author-block">
+        <div class="author-card text-center">
+          <img class="author-image" src="{{m.photo}}">
+          <h4 class="mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h4>
+          <p class="mb-0">{{m.institution}}</p>
+          <strong>{{m.role}}</strong>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

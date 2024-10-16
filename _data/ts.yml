@@ -85,31 +85,28 @@ interfaces:
     photo: https://www.nersc.gov/assets/Headshots/Gabor-Torok__ScaleHeightWzE1MF0.jpg
     url: https://www.nersc.gov/about/nersc-staff/infrastructure-services/gtorok/
 
-  - name:
-    institution:
-    photo:
-    url:
+  - name: Xi Yang
+    institution: Energy Sciences Network (ESnet)
+    photo: https://www.es.net/assets/Uploads/Xi-Yang__ScaleWidthWzMwMF0.jpg
+    url: https://www.es.net/about/esnet-staff/pilots-and-prototypes/xi-yang/
 
-  - name:
-    institution:
-    photo:
-    url:
-
-  - name:
-    institution:
-    photo:
-    url:
+  - name: Addi Thakur
+    institution: Spallation Neutron Source (ORNL/SNS)
+    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2021-03/biopic2_crop3.jpg?h=07487260&itok=rF9C_zvZ
+    url: https://www.ornl.gov/staff-profile/aditi-malviya
 
 trustid:
-  - name:
-    institution:
-    photo:
-    url:
+  - name: Ryan Adamson
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2020-10/2019-P01605.jpg?h=ce4e24c2&itok=ip4Mp467
+    url: https://www.ornl.gov/staff-profile/ryan-m-adamson
+    role: Co-Chair
 
-  - name:
-    institution:
-    photo:
-    url:
+  - name: Tiffany Connors
+    institution: National Energy Research Scientific Computing Center (NERSC)
+    photo: https://www.nersc.gov/assets/Uploads/ConnorsTiffany-Headshot__ScaleHeightWzE1MF0.jpg
+    url: https://www.nersc.gov/about/nersc-staff/networking-security/tiffany-connors/
+    role: Co-Chair
 
   - name:
     institution:
