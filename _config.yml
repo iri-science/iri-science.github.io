@@ -20,3 +20,6 @@ collections:
   events:
     output: true
     permalink: /events/:path/
+  pathfinders:
+    output: true
+    permalink: /pathfinders/:path/
