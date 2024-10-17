@@ -1,0 +1,33 @@
+---
+layout: page
+permalink: /documents
+title: Documents
+---
+
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            {% for d in site.data.documents %}
+            <div class="col-lg-4 col-sm-6">
+                <article class="card mb-4">
+                    <div class="post-slider slider-sm">
+                        <img src="images/documents/{{d.image}}" class="card-img-top" alt="post-thumb">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h4 mb-3"><a class="post-title" href="{{d.url}}" target="_blank">{{d.title}}</a></h3>
+                        <ul class="card-meta list-inline">
+                            <li class="list-inline-item">
+                                <span>{{d.authors}}</span>
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="ti-calendar"></i>{{d.year}}
+                            </li>
+                        </ul>
+                        <p>{{d.abstract | truncatewords: 50}}</p>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
