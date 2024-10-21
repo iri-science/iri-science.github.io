@@ -108,42 +108,52 @@ trustid:
     url: https://www.nersc.gov/about/nersc-staff/networking-security/tiffany-connors/
     role: Co-Chair
 
-  - name:
-    institution:
-    photo:
+  - name: Bill Allcock
+    institution: Argonne Leadership Computing Facility (ALCF)
+    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/Allcock%20Bill%2033662D24_500x545.jpg?itok=2T4JV9xR
+    url: https://www.alcf.anl.gov/about/people/bill-allcock
+
+  - name: Carl Bai
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2021-06/20190521_065904%204-5.jpg?h=0c4fc85b&itok=FTLeL7Ql
+    url: https://www.ornl.gov/staff-profile/carl-j-bai
+
+  - name: Scott Campbell
+    institution: Energy Sciences Network (ESnet)
+    photo: https://www.es.net/assets/Uploads/Scott-Campbell__ScaleWidthWzMwMF0.jpg
+    url: https://www.es.net/about/esnet-staff/cybersecurity-vulnerability-and-threat-management/scott-campbell/
+
+  - name: Carol Hawk
+    institution: US Department of Energy (DOE)
+    photo: https://www.energy.gov/sites/default/files/styles/full_article_width/public/Carol%20Hawk.JPG?itok=dMmlLOht
+    url: https://www.energy.gov/ceser/person/carol-hawk
+
+  - name: Maxim Kowalski
+    institution: High Performance Data Facility (HPDF)
+    photo: https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1
     url:
 
-  - name:
-    institution:
-    photo:
-    url:
+  - name: John MacAuley
+    institution: Energy Sciences Network (ESnet)
+    photo: https://www.es.net/assets/Uploads/MacAuley__ScaleWidthWzMwMF0.jpg
+    url: https://www.es.net/about/esnet-staff/network-services-automation/john-macauley/
 
-  - name:
-    institution:
-    photo:
-    url:
+  - name: Veronica Melesse Vergara
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2019-07/2017-P05970_0.jpg?h=23cc1fc6&itok=Jx2yRxX8
+    url: https://www.ornl.gov/staff-profile/veronica-g-melesse-vergara
 
-  - name:
-    institution:
-    photo:
-    url:
+  - name: Jeff Neel
+    institution: Argonne Leadership Computing Facility (ALCF)
+    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/Neel%20Jeffrey%2032848D186.jpg?itok=iYAp75rw
+    url: https://www.alcf.anl.gov/about/people/jeff-neel
 
-  - name:
-    institution:
-    photo:
-    url:
+  - name: John Riney
+    institution: National Energy Research Scientific Computing Center (NERSC)
+    photo: https://www.nersc.gov/assets/Headshots/John-Riney__ScaleHeightWzE1MF0.jpg
+    url: https://www.nersc.gov/about/nersc-staff/infrastructure-services/riney/
 
-  - name:
-    institution:
-    photo:
-    url:
-
-  - name:
-    institution:
-    photo:
-    url:
-
-  - name:
-    institution:
-    photo:
-    url:
+  - name: Adam Slagell
+    institution: Energy Sciences Network (ESnet)
+    photo: https://www.es.net/assets/Uploads/adam_slagell_2932_crop__ScaleWidthWzMwMF0.jpg
+    url: https://www.es.net/about/esnet-staff/cybersecurity/adam-slagell/
