@@ -75,6 +75,11 @@ interfaces:
     photo: https://www.nersc.gov/assets/Uploads/me-in-front-of-cosmic__ScaleHeightWzE1MF0.JPG
     url: https://www.nersc.gov/about/nersc-staff/data-science-engagement-group/bjoern-enders/
 
+  - name: Addi Malviya Thakur
+    institution: Spallation Neutron Source (ORNL/SNS)
+    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2021-03/biopic2_crop3.jpg?h=07487260&itok=rF9C_zvZ
+    url: https://www.ornl.gov/staff-profile/aditi-malviya
+
   - name: Paul Rich
     institution: Argonne Leadership Computing Facility (ALCF)
     photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/30395D076_crop_0.jpeg?itok=6tjmBHDx
@@ -89,11 +94,6 @@ interfaces:
     institution: Energy Sciences Network (ESnet)
     photo: https://www.es.net/assets/Uploads/Xi-Yang__ScaleWidthWzMwMF0.jpg
     url: https://www.es.net/about/esnet-staff/pilots-and-prototypes/xi-yang/
-
-  - name: Addi Malviya Thakur
-    institution: Spallation Neutron Source (ORNL/SNS)
-    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2021-03/biopic2_crop3.jpg?h=07487260&itok=rF9C_zvZ
-    url: https://www.ornl.gov/staff-profile/aditi-malviya
 
 trustid:
   - name: Ryan Adamson
