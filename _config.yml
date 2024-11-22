@@ -23,3 +23,6 @@ collections:
   pathfinders:
     output: true
     permalink: /pathfinders/:path/
+  news:
+    output: true
+    permalink: /news/:path/
