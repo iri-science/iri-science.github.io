@@ -54,10 +54,10 @@ interfaces:
     url: https://www.es.net/about/esnet-staff/network-services-automation/john-macauley/
     role: Co-Chair
 
-  - name: Ryan Prout
-    institution: Oak Ridge Leadership Computing Facility (OLCF)
-    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2023-11/Screenshot%202023-09-28%20at%208.33.09%20AM_0.png?h=27625e95&itok=YfkkQG2C
-    url: https://www.ornl.gov/staff-profile/ryan-c-prout
+  - name: Paul Rich
+    institution: Argonne Leadership Computing Facility (ALCF)
+    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/30395D076_crop_0.jpeg?itok=6tjmBHDx
+    url: https://www.alcf.anl.gov/about/people/paul-rich
     role: Co-Chair
 
   - name: Bill Allcock
@@ -80,10 +80,10 @@ interfaces:
     photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2021-03/biopic2_crop3.jpg?h=07487260&itok=rF9C_zvZ
     url: https://www.ornl.gov/staff-profile/aditi-malviya
 
-  - name: Paul Rich
-    institution: Argonne Leadership Computing Facility (ALCF)
-    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/30395D076_crop_0.jpeg?itok=6tjmBHDx
-    url: https://www.alcf.anl.gov/about/people/paul-rich
+  - name: Tyler Skluzacek
+    institution: Oak Ridge Leadership Computing Facility (OLCF)
+    photo: https://www.ornl.gov/sites/default/files/styles/staff_profile_image_style/public/2022-12/PXL_20220707_165644985~2.jpg?h=31f22629&itok=S4UgPB3b
+    url: https://www.ornl.gov/staff-profile/tyler-j-skluzacek
 
   - name: Gabor Torok
     institution: National Energy Research Scientific Computing Center (NERSC)
