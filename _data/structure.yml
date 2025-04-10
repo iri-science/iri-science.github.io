@@ -62,10 +62,9 @@ leadership:
     photo: https://www.es.net/assets/Uploads/CGuok_Headshot_20240807__ScaleWidthWzMwMF0.png
     url: https://www.es.net/about/esnet-staff/esnet-leadership/Chin-Guok/
 
-  - name: Graham Heyes
+  - name: Ilya Baldin
     institution: High Performance Data Facility (HPDF)
-    photo: https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=KEoTrtwAAAAJ&citpid=2
-    url: https://coda.jlab.org/drupal/content/about-us
+    photo: https://portal.fabric-testbed.net/static/media/ilya-baldin.f3c86286df8aa11be972.jpg
 
   - name: John MacAuley
     institution: Energy Sciences Network (ESnet)
