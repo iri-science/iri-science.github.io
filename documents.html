@@ -9,9 +9,11 @@ title: Documents
         <div class="row">
             {% for d in site.data.documents %}
             <div class="col-lg-4 col-sm-6">
-                <article class="card mb-4">
-                    <div class="post-slider slider-sm">
-                        <img src="images/documents/{{d.image}}" class="card-img-top" alt="post-thumb">
+                <article class="card mb-4" style="border-radius: 0.5em; min-height: 40em">
+                    <div class="post-slider slider-sm" style="border-bottom: 2px solid #eee;">
+                        <a href="{{d.url}}" target="_blank">
+                            <img src="images/documents/{{d.image}}" class="card-img-top" alt="post-thumb" style="object-fit: cover; min-height: 10em; max-height: 10em; border-top-right-radius: 0.5em; border-top-left-radius: 0.5em;" />
+                        </a>
                     </div>
                     <div class="card-body">
                         <h3 class="h4 mb-3"><a class="post-title" href="{{d.url}}" target="_blank">{{d.title}}</a></h3>
