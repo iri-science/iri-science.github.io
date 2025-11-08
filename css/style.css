@@ -678,6 +678,17 @@ mark {
   border: 0;
   background-color: #fff;
   transition: 0.2s ease;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 0.5em !important;
+}
+.card-header {
+  background-color: #41785F; 
+  border-top-left-radius: 0.5em !important; 
+  border-top-right-radius: 0.5em !important; 
+  padding: 0.5em 1em; 
+  color: #fff;
+  margin-bottom: 0;
+  border-bottom: 2px solid #4FD675;
 }
 .card-body {
   padding: 25px;
@@ -688,6 +699,9 @@ mark {
   border-radius: 0.25rem;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.card-img-top {
+  border-radius: 0;
 }
 .card-meta {
   display: flex;
@@ -1469,3 +1483,13 @@ mark {
   box-shadow: none !important;
 }
 /*# sourceMappingURL=style.css.map */
+
+.event-label {
+  background-color: #41785F;
+  color: #fff;
+  padding: 0.25em 0.75em;
+  font-size: 0.8em;
+  border-radius: 0.75em;
+  margin-right: 0.25em;
+  font-weight: bold;
+}

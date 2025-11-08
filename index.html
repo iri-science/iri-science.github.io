@@ -6,14 +6,7 @@ permalink: /
 <section class="section-sm">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center mb-5">
-                <!-- <h3>The Integrated Reseach Infrastructure (IRI) is a new Department of Energy (DOE) Office of Science
-                    program encompassing all <a href="https://science.osti.gov/ascr" target="_blank">Advanced Scientific
-                        Computing Research</a> (ASCR) Facilities and
-                    participating domain partners</h3> -->
-                <!-- <p class="col-12" style="margin: auto;">The IRI program involves the whole ASCR Facilities ecosystem
-                    (and potentially, the broader DOE research
-                    computing ecosystem)</p> -->
+            <div class="col-12 text-center">
                 <h3>DOE's Integrated Research Infrastructure (IRI) will seamlessly link DOE's experimental and
                     observational scientific user facilities, data assets, and advanced computing resources so that
                     researchers can combine these tools in novel ways that radically accelerate discovery</h3>
@@ -26,7 +19,12 @@ permalink: /
                     grow to include the <a href="https://hpdf.science/" target="_blank">High Performance Data
                         Facility</a>, spanning high performance computing, data, and networking infrastructure</p>
             </div>
-
+        </div>
+    </div>
+</section>
+<section class="section-sm mb-5 p-2" style="background-color: #f5f5f5">
+    <div class="container">
+        <div class="row pt-4">
             <div class="col-lg-3 col-sm-6 text-center mb-4">
                 <h3 class="border-bottom pb-3 mb-3 mx-2">DOE Facility Interface Improvement</h3>
                 <p>IRI is being designed to create better interfaces between DOE user facilities</p>
@@ -67,9 +65,9 @@ permalink: /
             {% assign news = site.news | sort: "date" | reverse %}
             {% for news in news %}
             <div class="col-lg-3 mb-5">
-                <h2 class="h5 section-title">{{ news.headline }}</h2>
                 <article class="card">
-                    <div class="post-slider slider-sm">
+                    <h2 class="card-header h5">{{ news.headline }}</h2>
+                    <div class="post-slider slider-sm mt-0 pt-0">
                         <img src="images/news/{{ news.image }}" class="card-img-top" alt="post-thumb"
                             style="object-fit: cover; height: 15em">
                     </div>
@@ -86,14 +84,13 @@ permalink: /
             </div>
             {% endfor %}
 
-            {% assign events = site.events | sort: 'date' | reverse  %}
-            {% for event in events %}
+            {% assign events = site.events | sort: 'date' | reverse %}
+            {% for event in events | limit: 2 %}
             <div class="col-lg-3 mb-5">
-                <h2 class="h5 section-title">{{ event.headline }}</h2>
                 <article class="card">
+                    <h2 class="card-header h5">{{ event.headline }}</h2>
                     <div class="post-slider slider-sm">
-                        <img src="{{ event.image }}"
-                            class="card-img-top" alt="post-thumb">
+                        <img src="{{ event.image }}" class="card-img-top" alt="post-thumb">
                     </div>
                     <div class="card-body">
                         <h3 class="h4 mb-3"><a class="post-title" href="{{ event.url }}">{{ event.subtitle }}</a></h3>
