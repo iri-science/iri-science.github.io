@@ -60,10 +60,10 @@ interfaces:
     url: https://www.alcf.anl.gov/about/people/paul-rich
     role: Co-Chair
 
-  - name: Bill Allcock
+  - name: Benoit Cote
     institution: Argonne Leadership Computing Facility (ALCF)
-    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/Allcock%20Bill%2033662D24_500x545.jpg?itok=2T4JV9xR
-    url: https://www.alcf.anl.gov/about/people/bill-allcock
+    photo: https://www.alcf.anl.gov/sites/default/files/styles/475x475/public/BenoitCote.png?itok=pXw3Blu_?itok=2T4JV9xR
+    url: https://www.alcf.anl.gov/about/people/benoit-cote
 
   - name: Ilya Baldin
     institution: High Performance Data Facility (HPDF)
