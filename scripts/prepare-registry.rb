@@ -9,6 +9,7 @@ require "uri"
 
 class RegistryPreparer
   REPOSITORY_URL = "https://github.com/doe-iri/iri-facility-api-docs"
+  PUBLIC_SITE_URL = "https://iri.science"
   GENERATED_MARKER = ".iri-registry-generated"
   IMPORT_ROOTS = {
     "registry/profiles" => "/profiles/",
@@ -49,7 +50,10 @@ class RegistryPreparer
     abort_unresolved!
     intermediate_pages = build_intermediate_pages(pages)
     prepare_output!
-    (pages + intermediate_pages).each { |page| write_page(page) }
+    (pages + intermediate_pages).each do |page|
+      write_page(page)
+      write_markdown_alternate(page)
+    end
     write_metadata(pages, intermediate_pages)
 
     puts "Prepared #{pages.count { |page| page.kind == 'profile' }} profiles, " \
@@ -273,10 +277,50 @@ class RegistryPreparer
       "permalink" => page.permalink,
       "registry_source" => page.source,
       "registry_commit" => @commit,
-      "registry_dirty" => @dirty
+      "registry_dirty" => @dirty,
+      "registry_identifier" => identifier_for(page.permalink),
+      "registry_markdown_url" => markdown_url_for(page.permalink)
     }.compact
     yaml = front_matter.map { |key, value| "#{key}: #{value.to_json}" }.join("\n")
     path.write("---\n#{yaml}\n---\n\n#{page.content}")
+  end
+
+  def write_markdown_alternate(page)
+    relative_output = page.permalink.delete_prefix("/").delete_suffix("/")
+    path = @output_root.join("alternates/#{relative_output}.txt")
+    FileUtils.mkdir_p(path.dirname)
+
+    front_matter = {
+      "layout" => nil,
+      "permalink" => markdown_path_for(page.permalink)
+    }
+    yaml = front_matter.map { |key, value| "#{key}: #{value.to_json}" }.join("\n")
+    path.write("---\n#{yaml}\n---\n#{page.content}")
+  end
+
+  def identifier_for(permalink)
+    "#{PUBLIC_SITE_URL}#{permalink.delete_suffix('/')}"
+  end
+
+  def markdown_path_for(permalink)
+    "#{permalink.delete_suffix('/')}.md"
+  end
+
+  def markdown_url_for(permalink)
+    "#{PUBLIC_SITE_URL}#{markdown_path_for(permalink)}"
+  end
+
+  def metadata_for(page)
+    {
+      "source" => page.source,
+      "identifier" => identifier_for(page.permalink),
+      "html" => identifier_for(page.permalink),
+      "markdown" => markdown_url_for(page.permalink),
+      "permalink" => page.permalink,
+      "title" => page.title,
+      "kind" => page.kind,
+      "source_commit" => @commit
+    }.compact
   end
 
   def write_metadata(pages, intermediate_pages)
@@ -284,10 +328,8 @@ class RegistryPreparer
       "registry_commit" => @commit,
       "registry_dirty" => @dirty,
       "repository" => REPOSITORY_URL,
-      "pages" => pages.map do |page|
-        { "source" => page.source, "permalink" => page.permalink, "title" => page.title, "kind" => page.kind }
-      end,
-      "indexes" => intermediate_pages.map { |page| { "permalink" => page.permalink, "title" => page.title } }
+      "pages" => pages.map { |page| metadata_for(page) },
+      "indexes" => intermediate_pages.map { |page| metadata_for(page) }
     }
     write_json_page("registry-manifest.json", "/registry-manifest.json", manifest)
     write_json_page(

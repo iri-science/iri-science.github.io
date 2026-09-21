@@ -7,6 +7,7 @@ require "pathname"
 
 source_root = Pathname(ARGV[0] || "_registry-source").expand_path
 site_root = Pathname(ARGV[1] || "_site").expand_path
+public_site_url = "https://iri.science"
 
 def abort_validation(message)
   warn "Registry build validation failed: #{message}"
@@ -38,16 +39,29 @@ end.sort
 manifest_sources = manifest.fetch("pages").map { |page| page.fetch("source") }.sort
 abort_validation("manifest does not contain every registry source page") unless manifest_sources == expected_sources
 
-manifest.fetch("pages").each do |page|
+all_manifest_pages = manifest.fetch("pages") + manifest.fetch("indexes")
+all_manifest_pages.each do |page|
   permalink = page.fetch("permalink")
+  identifier = "#{public_site_url}#{permalink.delete_suffix('/')}"
+  markdown_url = "#{identifier}.md"
+  abort_validation("incorrect identifier for #{permalink}") unless page.fetch("identifier") == identifier
+  abort_validation("incorrect HTML URL for #{permalink}") unless page.fetch("html") == identifier
+  abort_validation("incorrect Markdown URL for #{permalink}") unless page.fetch("markdown") == markdown_url
+  abort_validation("incorrect source commit for #{permalink}") unless page.fetch("source_commit") == source_commit
+
   output = site_root.join(permalink.delete_prefix("/"), "index.html")
   abort_validation("missing rendered page for #{permalink}") unless output.file?
-end
+  html = output.read
+  canonical = %(<link rel="canonical" href="#{identifier}">)
+  alternate = %(<link rel="alternate" type="text/markdown" href="#{markdown_url}">)
+  abort_validation("missing canonical link for #{permalink}") unless html.include?(canonical)
+  abort_validation("missing Markdown alternate link for #{permalink}") unless html.include?(alternate)
 
-manifest.fetch("indexes").each do |page|
-  permalink = page.fetch("permalink")
-  output = site_root.join(permalink.delete_prefix("/"), "index.html")
-  abort_validation("missing rendered intermediate index for #{permalink}") unless output.file?
+  markdown_output = site_root.join("#{permalink.delete_prefix('/').delete_suffix('/')}.md")
+  abort_validation("missing Markdown alternate for #{permalink}") unless markdown_output.file?
+  markdown = markdown_output.read
+  abort_validation("Markdown alternate was rendered as HTML for #{permalink}") if markdown.include?("<!DOCTYPE html>")
+  abort_validation("Markdown alternate has no top-level heading for #{permalink}") unless markdown.match?(/^#\s+\S/)
 end
 
 abort_validation("the retired /relations/ publication path was generated") if site_root.join("relations").exist?

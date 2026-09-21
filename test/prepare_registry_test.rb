@@ -52,17 +52,30 @@ class PrepareRegistryTest < Minitest::Test
     commit = run_command("git", "-C", @source.to_s, "rev-parse", "HEAD").strip
     profile_index = @output.join("imported/profiles.md").read
     relation = @output.join("imported/rels/example.md").read
+    resource_markdown = @output.join("alternates/profiles/status/resource.txt").read
 
     assert_includes profile_index, "](/profiles/status/resource/)"
     assert_includes profile_index, "](/rels/example/)"
     assert_includes profile_index, "https://github.com/doe-iri/iri-facility-api-docs/blob/#{commit}/rfc/example.md"
     assert_includes profile_index, "[Example only](../relations/example.md)"
     assert_includes relation, "](/profiles/status/resource/)"
+    assert_includes profile_index, 'registry_identifier: "https://iri.science/profiles"'
+    assert_includes profile_index, 'registry_markdown_url: "https://iri.science/profiles.md"'
+    assert_includes resource_markdown, 'permalink: "/profiles/status/resource.md"'
+    assert_includes resource_markdown, "# Resource Profile"
     assert @output.join("indexes/profiles/status.md").file?
+    assert @output.join("alternates/profiles/status.txt").file?
 
     manifest_text = @output.join("registry-manifest.json").read.sub(/\A---.*?---\n/m, "")
-    sources = JSON.parse(manifest_text).fetch("pages").map { |page| page.fetch("source") }
+    manifest = JSON.parse(manifest_text)
+    sources = manifest.fetch("pages").map { |page| page.fetch("source") }
     refute sources.any? { |source| source.end_with?("AGENTS.md") }
+    resource = manifest.fetch("pages").find do |page|
+      page.fetch("source") == "registry/profiles/status/resource.md"
+    end
+    assert_equal "https://iri.science/profiles/status/resource", resource.fetch("identifier")
+    assert_equal "https://iri.science/profiles/status/resource", resource.fetch("html")
+    assert_equal "https://iri.science/profiles/status/resource.md", resource.fetch("markdown")
   end
 
   def test_stops_and_reports_unresolved_source_links

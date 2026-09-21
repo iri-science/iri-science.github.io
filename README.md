@@ -3,6 +3,9 @@
 The site publishes the DOE-IRI profile and link-relation registries from the
 authoritative `doe-iri/iri-facility-api-docs` repository at `/profiles/` and
 `/rels/`. Generated registry pages are build artifacts and are not committed.
+Each canonical identifier returns HTML and advertises a raw Markdown alternate
+at the same path with a `.md` suffix. `/registry-manifest.json` maps every
+identifier to both representations and records the imported source commit.
 
 To build the complete site from sibling checkouts:
 
