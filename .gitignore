@@ -1,2 +1,8 @@
-_site
 .jekyll-cache
+_site/
+.bundle/
+.firecrawl/
+generated-registry/
+_registry-source/
+vendor/
+.DS_Store

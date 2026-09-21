@@ -1493,3 +1493,67 @@ mark {
   margin-right: 0.25em;
   font-weight: bold;
 }
+
+.registry-page {
+  padding-top: 60px;
+}
+
+.registry-document {
+  color: #333;
+  line-height: 1.7;
+}
+
+.registry-document h1,
+.registry-document h2,
+.registry-document h3,
+.registry-document h4 {
+  scroll-margin-top: 100px;
+}
+
+.registry-document h2 {
+  margin-top: 2.5rem;
+}
+
+.registry-document h3 {
+  margin-top: 2rem;
+}
+
+.registry-document table {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.registry-document th,
+.registry-document td {
+  min-width: 9rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #ddd;
+  vertical-align: top;
+}
+
+.registry-document th {
+  background: #f3f7f5;
+}
+
+.registry-document pre {
+  max-width: 100%;
+  padding: 1rem;
+  overflow-x: auto;
+  background: #f6f8fa;
+  border: 1px solid #e5e7e9;
+  border-radius: 0.25rem;
+}
+
+.registry-document :not(pre) > code {
+  overflow-wrap: anywhere;
+}
+
+.registry-source {
+  margin-bottom: 2rem;
+  padding: 0.75rem 1rem;
+  background: #f3f7f5;
+  border-left: 4px solid #41785f;
+  font-size: 0.9rem;
+}

@@ -1,5 +1,8 @@
-title: DOE IRI Program 
+title: DOE IRI Program
 description: DOE Integrated Research Infrastructure (IRI) Program
+url: https://iri.science
+repository: iri-science/iri-science.github.io
+registry_repository: https://github.com/doe-iri/iri-facility-api-docs
 
 markdown: kramdown
 
@@ -9,7 +12,16 @@ plugins:
   - jekyll-seo-tag    # Adds all the important SEO meta tags by default.
 
 exclude:
+  - .bundle
+  - .firecrawl
+  - .github
   - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - scripts
+  - test/
+  - _registry-source
+  - vendor
   - README.md
   - LICENSE
 

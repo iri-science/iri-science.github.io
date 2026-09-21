@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+    {% include head.html %}
+
+    <body>
+
+        {% include header_page.html %}
+
+        <main class="section-sm registry-page">
+            <div class="container">
+                <div class="row">
+                    <article class="col-12 registry-document">
+                        {% if page.registry_source %}
+                            <p class="registry-source">
+                                Imported from
+                                <a href="{{ site.registry_repository }}/blob/{{ page.registry_commit }}/{{ page.registry_source }}">{{ page.registry_source }}</a>
+                                at commit
+                                <a href="{{ site.registry_repository }}/commit/{{ page.registry_commit }}"><code>{{ page.registry_commit | slice: 0, 12 }}</code></a>.
+                                {% if page.registry_dirty %}<strong>This local preview also includes uncommitted registry changes.</strong>{% endif %}
+                            </p>
+                        {% endif %}
+                        {{ content }}
+                    </article>
+                </div>
+            </div>
+        </main>
+
+        {% include footer.html %}
+
+    </body>
+
+</html>
