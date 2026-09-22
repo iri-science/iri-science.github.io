@@ -61,12 +61,19 @@
                 <a class="nav-link" href="/documents">Documents</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="/profiles/">Profiles</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/rels/">Link Relations</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="iri-api-resources-menu" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    IRI API Resources <i class="ti-angle-down ml-1"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="iri-api-resources-menu">
+                    <a class="dropdown-item" href="/profiles/">Profiles</a>
+                    <a class="dropdown-item" href="/rels/">Link Relations</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/api/v2/openapi.yaml">OpenAPI v2 (YAML)</a>
+                    <a class="dropdown-item" href="/api/v2/openapi.json">OpenAPI v2 (JSON)</a>
+                    <a class="dropdown-item" href="/registry-manifest.json">Registry Manifest</a>
+                </div>
             </li>
         </ul>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX5EMHv3_TqjBDZzCuuB20SHUkK3Jth0GvBHLjLctcz8-Iqw/viewform?usp=sf_link" target="_blank" class="btn btn-primary">Contact Us</a>
