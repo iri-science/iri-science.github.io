@@ -83,6 +83,7 @@ class PrepareOpenapiTest < Minitest::Test
     assert status.success?, stderr
     site.join("index.html").write(<<~HTML)
       <nav>IRI API Resources
+        <a href="https://doe-iri.github.io/iri-facility-api-docs/">Facility API Documentation</a>
         <a href="/profiles/">Profiles</a>
         <a href="/rels/">Link Relations</a>
         <a href="/api/v2/openapi.yaml">OpenAPI YAML</a>
@@ -109,7 +110,14 @@ class PrepareOpenapiTest < Minitest::Test
     dropdown = menu.match(/IRI API Resources.*?<div class="dropdown-menu"[^>]*>(.*?)<\/div>\s*<\/li>/m)
 
     refute_nil dropdown
-    %w[/profiles/ /rels/ /api/v2/openapi.yaml /api/v2/openapi.json /registry-manifest.json].each do |href|
+    %w[
+      https://doe-iri.github.io/iri-facility-api-docs/
+      /profiles/
+      /rels/
+      /api/v2/openapi.yaml
+      /api/v2/openapi.json
+      /registry-manifest.json
+    ].each do |href|
       assert_includes dropdown[1], %(href="#{href}")
     end
     refute_match(/<li class="nav-item">\s*<a class="nav-link" href="\/(?:profiles|rels)\//m, menu)

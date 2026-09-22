@@ -12,8 +12,8 @@ The IRI Facility API v2 OpenAPI document is published directly from
 [`/api/v2/openapi.json`](https://iri.science/api/v2/openapi.json). Publication metadata, including
 the source commit and representation hashes, is available at
 [`/api/v2/openapi-metadata.json`](https://iri.science/api/v2/openapi-metadata.json). These
-resources are grouped with Profiles and Link Relations in the site's
-**IRI API Resources** navigation menu.
+resources are grouped with the Facility API Documentation, Profiles, and Link
+Relations in the site's **IRI API Resources** navigation menu.
 
 To build the complete site from sibling checkouts:
 
