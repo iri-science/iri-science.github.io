@@ -98,6 +98,7 @@ homepage = homepage_path.read
 abort_validation("IRI API Resources dropdown is missing") unless homepage.include?("IRI API Resources")
 
 [
+  "https://doe-iri.github.io/iri-facility-api-docs/",
   "/profiles/",
   "/rels/",
   "/api/v2/openapi.yaml",
