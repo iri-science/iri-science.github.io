@@ -5,9 +5,12 @@ require "json"
 require "open3"
 require "pathname"
 
+require_relative "registry-source"
+
 source_root = Pathname(ARGV[0] || "_registry-source").expand_path
 site_root = Pathname(ARGV[1] || "_site").expand_path
 public_site_url = "https://iri.science"
+import_roots = RegistrySource.import_roots(source_root)
 
 def abort_validation(message)
   warn "Registry build validation failed: #{message}"
@@ -30,7 +33,7 @@ if import["dirty"] && ENV["ALLOW_DIRTY_REGISTRY"] != "1"
   abort_validation("build imported uncommitted registry changes")
 end
 
-expected_sources = %w[registry/profiles registry/relations].flat_map do |root|
+expected_sources = import_roots.keys.flat_map do |root|
   Dir.glob(source_root.join(root, "**/*.md")).map { |path| Pathname(path) }
 end.reject { |path| path.basename.to_s == "AGENTS.md" }.map do |path|
   path.relative_path_from(source_root).to_s

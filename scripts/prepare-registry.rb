@@ -7,15 +7,12 @@ require "open3"
 require "pathname"
 require "uri"
 
+require_relative "registry-source"
+
 class RegistryPreparer
   REPOSITORY_URL = "https://github.com/doe-iri/iri-facility-api-docs"
   PUBLIC_SITE_URL = "https://iri.science"
   GENERATED_MARKER = ".iri-registry-generated"
-  IMPORT_ROOTS = {
-    "registry/profiles" => "/profiles/",
-    "registry/relations" => "/rels/"
-  }.freeze
-
   Page = Struct.new(:source, :permalink, :title, :content, :kind, keyword_init: true)
 
   def initialize(source_root, output_root)
@@ -64,10 +61,7 @@ class RegistryPreparer
   private
 
   def validate_roots!
-    unless @source_root.join("registry/profiles/README.md").file? &&
-           @source_root.join("registry/relations/README.md").file?
-      abort "Registry checkout must contain registry/profiles and registry/relations"
-    end
+    @import_roots = RegistrySource.import_roots(@source_root)
 
     if @output_root == Pathname("/") || @output_root == @source_root ||
        @source_root.to_s.start_with?("#{@output_root}/")
@@ -95,7 +89,7 @@ class RegistryPreparer
   end
 
   def imported_source_files
-    IMPORT_ROOTS.keys.flat_map do |root|
+    @import_roots.keys.flat_map do |root|
       Dir.glob(@source_root.join(root, "**/*.md")).map { |path| Pathname(path) }
     end.reject { |path| path.basename.to_s == "AGENTS.md" }.sort
   end
@@ -105,17 +99,13 @@ class RegistryPreparer
   end
 
   def permalink_for(source)
-    if source == "registry/profiles/README.md"
-      "/profiles/"
-    elsif source.start_with?("registry/profiles/")
-      "/profiles/#{source.delete_prefix('registry/profiles/').delete_suffix('.md')}/"
-    elsif source == "registry/relations/README.md"
-      "/rels/"
-    elsif source.start_with?("registry/relations/")
-      "/rels/#{source.delete_prefix('registry/relations/').delete_suffix('.md')}/"
-    else
-      raise "Not an imported registry source: #{source}"
+    @import_roots.each do |root, published_root|
+      return published_root if source == "#{root}/README.md"
+      if source.start_with?("#{root}/")
+        return "#{published_root}#{source.delete_prefix("#{root}/").delete_suffix('.md')}/"
+      end
     end
+    raise "Not an imported registry source: #{source}"
   end
 
   def rewrite_document(source_path, permalink_by_source)
@@ -186,7 +176,7 @@ class RegistryPreparer
   end
 
   def published_directory(source)
-    IMPORT_ROOTS.each do |root, published_root|
+    @import_roots.each do |root, published_root|
       return published_root if source == root
       return "#{published_root}#{source.delete_prefix("#{root}/").delete_suffix('/')}/" if source.start_with?("#{root}/")
     end
