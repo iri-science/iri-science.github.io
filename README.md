@@ -6,6 +6,10 @@ authoritative `doe-iri/iri-facility-api-docs` repository at `/profiles/` and
 Each canonical identifier returns HTML and advertises a raw Markdown alternate
 at the same path with a `.md` suffix. `/registry-manifest.json` maps every
 identifier to both representations and records the imported source commit.
+The relation source is `registry/rels`; the importer and build validator also
+accept the legacy `registry/relations` layout during the directory migration.
+A checkout must contain exactly one of these directories, including its
+`README.md` index. Both layouts publish at the same `/rels/` URLs.
 The IRI Facility API v2 OpenAPI document is published directly from
 `specification-v2/openapi/all_spec_v2.yaml` as both
 [`/api/v2/openapi.yaml`](https://iri.science/api/v2/openapi.yaml) and
