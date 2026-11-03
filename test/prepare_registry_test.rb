@@ -20,18 +20,18 @@ class PrepareRegistryTest < Minitest::Test
 
       [Resource
       profile](status/resource.md)
-      [Relation](../relations/example.md)
+      [Relation](../rels/example.md)
       [RFC](../../rfc/example.md)
 
       ```text
-      [Example only](../relations/example.md)
+      [Example only](../rels/example.md)
       ```
     MARKDOWN
     write("registry/profiles/status/resource.md", "# Resource Profile\n")
     write("registry/profiles/AGENTS.md", "Do not publish this file.\n")
-    write("registry/relations/README.md", "# Relations\n\n[Example](example.md)\n")
-    write("registry/relations/example.md", "# Example Relation\n\n[Resource](../profiles/status/resource.md)\n")
-    write("registry/relations/AGENTS.md", "Do not publish this file.\n")
+    write("registry/rels/README.md", "# Relations\n\n[Example](example.md)\n")
+    write("registry/rels/example.md", "# Example Relation\n\n[Resource](../profiles/status/resource.md)\n")
+    write("registry/rels/AGENTS.md", "Do not publish this file.\n")
     write("rfc/example.md", "# RFC\n")
 
     run_command("git", "init", "--quiet", @source.to_s)
@@ -57,7 +57,7 @@ class PrepareRegistryTest < Minitest::Test
     assert_includes profile_index, "](/profiles/status/resource/)"
     assert_includes profile_index, "](/rels/example/)"
     assert_includes profile_index, "https://github.com/doe-iri/iri-facility-api-docs/blob/#{commit}/rfc/example.md"
-    assert_includes profile_index, "[Example only](../relations/example.md)"
+    assert_includes profile_index, "[Example only](../rels/example.md)"
     assert_includes relation, "](/profiles/status/resource/)"
     assert_includes profile_index, 'registry_identifier: "https://iri.science/profiles"'
     assert_includes profile_index, 'registry_markdown_url: "https://iri.science/profiles.md"'
@@ -76,6 +76,13 @@ class PrepareRegistryTest < Minitest::Test
     assert_equal "https://iri.science/profiles/status/resource", resource.fetch("identifier")
     assert_equal "https://iri.science/profiles/status/resource", resource.fetch("html")
     assert_equal "https://iri.science/profiles/status/resource.md", resource.fetch("markdown")
+    relation_page = manifest.fetch("pages").find do |page|
+      page.fetch("source") == "registry/rels/example.md"
+    end
+    refute_nil relation_page
+    assert_equal "relation", relation_page.fetch("kind")
+    assert_equal "https://iri.science/rels/example", relation_page.fetch("identifier")
+    assert_equal "https://iri.science/rels/example.md", relation_page.fetch("markdown")
   end
 
   def test_stops_and_reports_unresolved_source_links

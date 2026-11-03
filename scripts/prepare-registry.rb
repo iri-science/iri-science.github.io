@@ -13,7 +13,7 @@ class RegistryPreparer
   GENERATED_MARKER = ".iri-registry-generated"
   IMPORT_ROOTS = {
     "registry/profiles" => "/profiles/",
-    "registry/relations" => "/rels/"
+    "registry/rels" => "/rels/"
   }.freeze
 
   Page = Struct.new(:source, :permalink, :title, :content, :kind, keyword_init: true)
@@ -65,8 +65,8 @@ class RegistryPreparer
 
   def validate_roots!
     unless @source_root.join("registry/profiles/README.md").file? &&
-           @source_root.join("registry/relations/README.md").file?
-      abort "Registry checkout must contain registry/profiles and registry/relations"
+           @source_root.join("registry/rels/README.md").file?
+      abort "Registry checkout must contain registry/profiles and registry/rels"
     end
 
     if @output_root == Pathname("/") || @output_root == @source_root ||
@@ -109,10 +109,10 @@ class RegistryPreparer
       "/profiles/"
     elsif source.start_with?("registry/profiles/")
       "/profiles/#{source.delete_prefix('registry/profiles/').delete_suffix('.md')}/"
-    elsif source == "registry/relations/README.md"
+    elsif source == "registry/rels/README.md"
       "/rels/"
-    elsif source.start_with?("registry/relations/")
-      "/rels/#{source.delete_prefix('registry/relations/').delete_suffix('.md')}/"
+    elsif source.start_with?("registry/rels/")
+      "/rels/#{source.delete_prefix('registry/rels/').delete_suffix('.md')}/"
     else
       raise "Not an imported registry source: #{source}"
     end

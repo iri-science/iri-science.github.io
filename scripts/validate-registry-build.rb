@@ -30,7 +30,7 @@ if import["dirty"] && ENV["ALLOW_DIRTY_REGISTRY"] != "1"
   abort_validation("build imported uncommitted registry changes")
 end
 
-expected_sources = %w[registry/profiles registry/relations].flat_map do |root|
+expected_sources = %w[registry/profiles registry/rels].flat_map do |root|
   Dir.glob(source_root.join(root, "**/*.md")).map { |path| Pathname(path) }
 end.reject { |path| path.basename.to_s == "AGENTS.md" }.map do |path|
   path.relative_path_from(source_root).to_s
