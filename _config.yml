@@ -1,6 +1,7 @@
 title: DOE IRI Program
 description: DOE Integrated Research Infrastructure (IRI) Program
 url: https://iri.science
+baseurl: ""
 repository: iri-science/iri-science.github.io
 registry_repository: https://github.com/doe-iri/iri-facility-api-docs
 

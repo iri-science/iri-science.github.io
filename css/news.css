@@ -1,0 +1,117 @@
+.news-page {
+  padding: 9rem 0 2rem;
+}
+
+.news-article {
+  max-width: 54rem;
+}
+
+.news-article-header {
+  margin-bottom: 2rem;
+}
+
+.news-article h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.news-kicker {
+  color: #41785f;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.news-meta,
+.news-figure figcaption {
+  color: #626262;
+  font-size: 0.875rem;
+}
+
+.news-figure {
+  margin-bottom: 2rem;
+}
+
+.news-figure img {
+  width: 100%;
+  height: auto;
+}
+
+.news-figure figcaption {
+  margin-top: 0.5rem;
+}
+
+.news-figure figcaption span {
+  display: block;
+}
+
+.news-content p,
+.news-content li {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.news-content h2 {
+  margin: 2.25rem 0 1rem;
+  font-size: 1.625rem;
+}
+
+.news-content h3 {
+  margin: 1.75rem 0 1rem;
+}
+
+.news-table-scroll {
+  max-width: 100%;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.news-table-scroll table {
+  min-width: 42rem;
+  margin-bottom: 0;
+}
+
+.news-table-scroll:focus-visible,
+.news-card a:focus-visible,
+.news-article a:focus-visible {
+  outline: 2px solid #41785f;
+  outline-offset: 3px;
+}
+
+.news-back-link {
+  margin-top: 3rem;
+}
+
+.news-card {
+  width: 100%;
+  height: 100%;
+}
+
+.news-card .card-img-top {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.news-card .news-kicker {
+  font-size: 0.8125rem;
+}
+
+.news-card .post-title {
+  overflow-wrap: break-word;
+}
+
+.news-card .news-summary {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .news-page {
+    padding-top: 7rem;
+  }
+
+  .news-article h1 {
+    font-size: 1.875rem;
+  }
+}

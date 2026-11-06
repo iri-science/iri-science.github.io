@@ -38,3 +38,28 @@ The registry checkout must be clean so its recorded commit describes the
 published content exactly; set `ALLOW_DIRTY_REGISTRY=1` only for local previews.
 Before the first deployment, a repository administrator must select GitHub
 Actions as the Pages publishing source.
+
+## News articles
+
+Add articles as Markdown documents under `_news/` using `layout: article`.
+Set `title`, `headline` (the short homepage label), `date` (publication date),
+`author`, `summary`, `category: News`, and a stable `/news/.../` `permalink` in
+the YAML front matter. The homepage lists articles by publication date, newest
+first, and uses `summary` for each card. The same summary supplies the article's
+page description. Start the body with the introductory text; the layout renders
+the title and byline.
+
+Images are optional. To add one later, place it under `images/news/` and add
+these front-matter fields to the article:
+
+```yaml
+image: 2026-sc26-demos.jpg
+image_alt: Describe what the image shows.
+image_caption: Optional caption.
+image_credit: Photographer or organization.
+```
+
+The image appears on the homepage card and article page. Articles without an
+image render without an image element or reserved image space. For wide tables,
+wrap the Markdown table in a `<div class="news-table-scroll" markdown="1">`
+with an accessible label and `tabindex="0"` so it can scroll on small screens.
