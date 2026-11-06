@@ -59,33 +59,35 @@ permalink: /
     </div>
 </section> -->
 
-<section class="section pb-0 pt-0">
+<section class="section pb-0 pt-0" aria-labelledby="latest-news">
     <div class="container">
+        <h2 id="latest-news" class="h3 mb-4">Latest news</h2>
         <div class="row">
-            {% assign news = site.news | sort: "date" | reverse %}
-            {% for news in news %}
-            <div class="col-lg-3 mb-5">
-                <article class="card">
-                    <h2 class="card-header h5">{{ news.headline }}</h2>
-                    <div class="post-slider slider-sm mt-0 pt-0">
-                        <img src="images/news/{{ news.image }}" class="card-img-top" alt="post-thumb"
-                            style="object-fit: cover; height: 15em">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="h4 mb-3"><a class="post-title" href="{{ news.url }}">{{ news.title }}</a></h3>
-                        <ul class="card-meta list-inline">
-                            <li class="list-inline-item">
-                                <i class="ti-calendar"></i>{{ news.date | date_to_string: "ordinal", "US" }}
-                            </li>
-                        </ul>
-                        <a href="{{ news.url }}" class="btn btn-outline-primary">Read More</a>
+            {% assign news_items = site.news | sort: "date" | reverse %}
+            {% for item in news_items %}
+            <div class="col-lg-4 col-md-6 mb-4 d-flex">
+                <article class="card news-card">
+                    {% if item.image %}
+                    <img src="{{ item.image | prepend: '/images/news/' | relative_url }}" class="card-img-top"
+                        alt="{{ item.image_alt | default: item.title | escape }}" loading="lazy">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column">
+                        {% if item.headline %}<p class="news-kicker mb-2">{{ item.headline | escape }}</p>{% endif %}
+                        <h3 class="h4 mb-3"><a class="post-title" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a></h3>
+                        <p class="news-meta"><time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%B %-d, %Y" }}</time></p>
+                        {% if item.summary %}<p class="news-summary">{{ item.summary | escape }}</p>{% endif %}
+                        <a href="{{ item.url | relative_url }}" class="btn btn-outline-primary mt-auto align-self-start"
+                            aria-label="Read more: {{ item.title | escape }}">Read More</a>
                     </div>
                 </article>
             </div>
             {% endfor %}
+        </div>
 
+        <h2 class="h3 mt-4 mb-4">Events</h2>
+        <div class="row">
             {% assign events = site.events | sort: 'date' | reverse %}
-            {% for event in events | limit: 2 %}
+            {% for event in events limit: 2 %}
             <div class="col-lg-3 mb-5">
                 <article class="card">
                     <h2 class="card-header h5">{{ event.headline }}</h2>

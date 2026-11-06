@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+    {% include head.html %}
+
+    <body>
+        <header class="navigation fixed-top" style="background-color: #fff;">
+            <div class="container">
+                {% include menu.html %}
+            </div>
+        </header>
+
+        <main class="news-page">
+            <article class="container news-article">
+                <header class="news-article-header">
+                    <p class="news-kicker">{{ page.category | default: "News" | escape }}</p>
+                    <h1>{{ page.title | escape }}</h1>
+                    <p class="news-meta">
+                        {% if page.author %}<span>By {{ page.author | escape }}</span><span aria-hidden="true"> &middot; </span>{% endif %}
+                        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                    </p>
+                </header>
+
+                {% if page.image %}
+                <figure class="news-figure">
+                    <img src="{{ page.image | prepend: '/images/news/' | relative_url }}"
+                        alt="{{ page.image_alt | default: page.title | escape }}" class="img-fluid">
+                    {% if page.image_caption or page.image_credit %}
+                    <figcaption>
+                        {% if page.image_caption %}{{ page.image_caption | escape }}{% endif %}
+                        {% if page.image_credit %}<span>Photo: {{ page.image_credit | escape }}</span>{% endif %}
+                    </figcaption>
+                    {% endif %}
+                </figure>
+                {% endif %}
+
+                <div class="content news-content">
+                    {{ content }}
+                </div>
+
+                <p class="news-back-link"><a href="{{ '/' | relative_url }}#latest-news">Back to latest news</a></p>
+            </article>
+        </main>
+
+        {% include footer.html %}
+    </body>
+</html>
