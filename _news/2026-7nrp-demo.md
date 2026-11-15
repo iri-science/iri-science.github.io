@@ -7,6 +7,8 @@ author: "Justas Balcas"
 summary: "A hands-on workshop introduced Facility API v1 and an early AmSC orchestration prototype to the National Research Platform community."
 category: "News"
 permalink: "/news/2026-7nrp-demo/"
+image: "/images/7nrp.jpg"
+image_alt: "Presenters discuss IRI and the American Science Cloud with workshop attendees at the San Diego Supercomputer Center."
 ---
 
 _A hands-on session at the Seventh National Research Platform Workshop paired a shared notebook with an early look at cross-facility orchestration._

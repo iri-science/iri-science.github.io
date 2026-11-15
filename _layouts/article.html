@@ -22,9 +22,15 @@
                 </header>
 
                 {% if page.image %}
+                {% assign image_path = page.image %}
+                {% assign image_start = image_path | slice: 0, 1 %}
+                {% unless image_start == '/' %}
+                    {% assign image_path = image_path | prepend: '/images/news/' %}
+                {% endunless %}
                 <figure class="news-figure">
-                    <img src="{{ page.image | prepend: '/images/news/' | relative_url }}"
-                        alt="{{ page.image_alt | default: page.title | escape }}" class="img-fluid">
+                    <img src="{{ image_path | relative_url | escape }}"
+                        alt="{{ page.image_alt | default: page.title | escape }}"
+                        class="img-fluid{% if page.image_fit == 'contain' %} news-image-contain{% endif %}{% if page.image_background == 'dark' %} news-image-dark{% endif %}">
                     {% if page.image_caption or page.image_credit %}
                     <figcaption>
                         {% if page.image_caption %}{{ page.image_caption | escape }}{% endif %}

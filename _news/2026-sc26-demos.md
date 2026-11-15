@@ -7,6 +7,10 @@ author: "Justas Balcas"
 summary: "See IRI at SC26: demonstrations of resource discovery with IRI 2.0 and scientific workflows spanning DOE facilities and ESnet’s AWS environment."
 category: "News"
 permalink: "/news/2026-sc26-demos/"
+image: "/images/sc26_hor_color_white.png"
+image_alt: "SC26 logo with a Chicago skyline and the tagline HPC unites."
+image_fit: "contain"
+image_background: "dark"
 ---
 
 _Two demonstrations at the DOE booth will show IRI from different angles: one focused on discovering research infrastructure, the other on running the same scientific workflow across DOE systems and an AWS-backed cloud facility._

@@ -7,6 +7,9 @@ author: "Justas Balcas"
 summary: "Explore how AmSC project identity and staging integrations connect scientific workflows to facility APIs while preserving local authorization decisions."
 category: "News"
 permalink: "/news/2026-amsc-integration/"
+image: "/images/GM-DOE.jpg"
+image_alt: "U.S. Department of Energy and Genesis Mission logos."
+image_fit: "contain"
 ---
 
 _New identity support in the IRI reference implementation and a documented staging workflow show how an AmSC project can reach independently operated DOE facilities without taking authorization decisions away from them._

@@ -7,7 +7,7 @@ permalink: /
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h3>DOE's Integrated Research Infrastructure (IRI) will seamlessly link DOE's experimental and
+                <h3>DOE's Integrated Research Infrastructure (IRI) seamlessly links DOE's experimental and
                     observational scientific user facilities, data assets, and advanced computing resources so that
                     researchers can combine these tools in novel ways that radically accelerate discovery</h3>
                 <p class="col-12" style="margin: auto;">The term ASCR Facilities Ecosystem represents the fact that
@@ -17,7 +17,7 @@ permalink: /
                         target="_blank">ESnet</a>) user facilities are not isolated but are richly connected, and
                     increasingly integrate efforts to enable DOE mission objectives. The ASCR Facilities Ecosystem will
                     grow to include the <a href="https://hpdf.science/" target="_blank">High Performance Data
-                        Facility</a>, spanning high performance computing, data, and networking infrastructure</p>
+                        Facility</a>, spanning high performance computing, data, and networking infrastructure.</p>
             </div>
         </div>
     </div>
@@ -27,23 +27,23 @@ permalink: /
         <div class="row pt-4">
             <div class="col-lg-3 col-sm-6 text-center mb-4">
                 <h3 class="border-bottom pb-3 mb-3 mx-2">DOE Facility Interface Improvement</h3>
-                <p>IRI is being designed to create better interfaces between DOE user facilities</p>
+                <p>IRI is designed to create better interfaces between DOE user facilities</p>
             </div>
 
             <div class="col-lg-3 col-sm-6 text-center mb-4">
                 <h3 class="border-bottom pb-3 mb-3 mx-2">Integrated Frameworks for IRI</h3>
-                <p>IRI will include frameworks for integration in software, policy and governance</p>
+                <p>IRI includes frameworks for integration in software, policy and governance</p>
             </div>
 
             <div class="col-lg-3 col-sm-6 text-center mb-4">
                 <h3 class="border-bottom pb-3 mb-3 mx-2">Enhancing Facility Capabilities</h3>
-                <p>IRI will layer on top of existing (and future) facility capabilities, to enhance integration and
+                <p>IRI layers on top of existing (and future) facility capabilities, to enhance integration and
                     usability/user experience</p>
             </div>
 
             <div class="col-lg-3 col-sm-6 text-center mb-4">
                 <h3 class="border-bottom pb-3 mb-3 mx-2">Managing ASCR Integration</h3>
-                <p>IRI is the means by which we will manage the ASCR ecosystem and its further integration that is
+                <p>IRI is the means by which we manage the ASCR ecosystem and its further integration that is
                     required specifically for the Office of Science</p>
             </div>
 
@@ -68,7 +68,13 @@ permalink: /
             <div class="col-lg-4 col-md-6 mb-4 d-flex">
                 <article class="card news-card">
                     {% if item.image %}
-                    <img src="{{ item.image | prepend: '/images/news/' | relative_url }}" class="card-img-top"
+                    {% assign image_path = item.image %}
+                    {% assign image_start = image_path | slice: 0, 1 %}
+                    {% unless image_start == '/' %}
+                        {% assign image_path = image_path | prepend: '/images/news/' %}
+                    {% endunless %}
+                    <img src="{{ image_path | relative_url | escape }}"
+                        class="card-img-top{% if item.image_fit == 'contain' %} news-image-contain{% endif %}{% if item.image_background == 'dark' %} news-image-dark{% endif %}"
                         alt="{{ item.image_alt | default: item.title | escape }}" loading="lazy">
                     {% endif %}
                     <div class="card-body d-flex flex-column">
@@ -84,24 +90,26 @@ permalink: /
             {% endfor %}
         </div>
 
-        <h2 class="h3 mt-4 mb-4">Events</h2>
+        <h2 id="events" class="h3 mt-4 mb-4">Events</h2>
         <div class="row">
             {% assign events = site.events | sort: 'date' | reverse %}
             {% for event in events limit: 2 %}
             <div class="col-lg-3 mb-5">
-                <article class="card">
-                    <h2 class="card-header h5">{{ event.headline }}</h2>
+                <article class="card event-card">
+                    <h2 class="card-header h5">{{ event.headline | escape }}</h2>
                     <div class="post-slider slider-sm">
-                        <img src="{{ event.image }}" class="card-img-top" alt="post-thumb">
+                        <img src="{{ event.image | relative_url | escape }}"
+                            class="card-img-top{% if event.image_background == 'dark' %} news-image-dark{% endif %}"
+                            alt="{{ event.image_alt | default: event.headline | escape }}" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h3 class="h4 mb-3"><a class="post-title" href="{{ event.url }}">{{ event.subtitle }}</a></h3>
+                        <h3 class="h4 mb-3"><a class="post-title" href="{{ event.url | relative_url }}">{{ event.subtitle | escape }}</a></h3>
                         <ul class="card-meta list-inline">
                             <li class="list-inline-item">
                                 <i class="ti-calendar"></i>{{ event.date | date_to_string: "ordinal", "US" }}
                             </li>
                         </ul>
-                        <a href="{{ event.url }}" class="btn btn-outline-primary">Read More</a>
+                        <a href="{{ event.url | relative_url }}" class="btn btn-outline-primary">Read More</a>
                     </div>
                 </article>
             </div>
