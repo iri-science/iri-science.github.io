@@ -7,6 +7,9 @@ author: "Justas Balcas"
 summary: "Shared exercises put resource discovery, job submission, monitoring, and file access through their paces across independently operated facilities."
 category: "News"
 permalink: "/news/2026-alcf-genesis-hackathon/"
+image: "/images/Genesis-Mission_logo.png"
+image_alt: "Genesis Mission logo on a dark blue and purple background."
+image_fit: "contain"
 ---
 
 _At Argonne’s October hackathon, the IRI team built one exercise set that could target ALCF, NERSC, OLCF, and an ESnet environment on AWS._

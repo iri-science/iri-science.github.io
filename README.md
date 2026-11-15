@@ -49,8 +49,9 @@ first, and uses `summary` for each card. The same summary supplies the article's
 page description. Start the body with the introductory text; the layout renders
 the title and byline.
 
-Images are optional. To add one later, place it under `images/news/` and add
-these front-matter fields to the article:
+Images are optional. Set `image` to a site-root path beginning with `/` to use
+an existing asset, or use a filename for an image under `images/news/`. Add
+descriptive alternative text and, when available, a caption and credit:
 
 ```yaml
 image: 2026-sc26-demos.jpg
@@ -58,6 +59,13 @@ image_alt: Describe what the image shows.
 image_caption: Optional caption.
 image_credit: Photographer or organization.
 ```
+
+For example, `image: /images/sc26_hor_color_white.png` uses the image at that
+path. Both path forms respect the configured site `baseurl`. Set
+`image_fit: contain` to show the whole image within the homepage card's 16:9
+frame instead of cropping it. Set `image_background: dark` for a dark, padded
+background on both the card and article image, useful for white logo lettering.
+Article images always retain their natural aspect ratio.
 
 The image appears on the homepage card and article page. Articles without an
 image render without an image element or reserved image space. For wide tables,

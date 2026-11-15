@@ -94,6 +94,15 @@
   object-fit: cover;
 }
 
+.news-card .news-image-contain {
+  object-fit: contain;
+}
+
+.news-image-dark {
+  background-color: #132536;
+  padding: 1rem;
+}
+
 .news-card .news-kicker {
   font-size: 0.8125rem;
 }
