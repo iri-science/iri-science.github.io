@@ -1,0 +1,2 @@
+{%- assign image_dimensions = site.data.image_dimensions[include.path] -%}
+{%- if image_dimensions -%}width="{{ image_dimensions.width }}" height="{{ image_dimensions.height }}"{%- endif -%}

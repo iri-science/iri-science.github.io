@@ -1,135 +1,130 @@
-/**
- * WEBSITE: https://themefisher.com
- * TWITTER: https://twitter.com/themefisher
- * FACEBOOK: https://www.facebook.com/themefisher
- * GITHUB: https://github.com/themefisher/
- */
+const header = document.querySelector('.site-header');
+const nav = header?.querySelector('.site-nav');
 
-// Preloader js    
-$(window).on('load', function () {
-	'use strict';
-	$('.preloader').fadeOut(100);
+// Old browsers keep the complete navigation visible, without a JS dependency.
+if (nav && 'popover' in HTMLElement.prototype) {
+  const menu = nav.querySelector('.site-menu');
+  const menuButton = nav.querySelector('.menu-button');
+  const dropdowns = [...nav.querySelectorAll('.site-dropdown')].map(item => ({
+    item,
+    trigger: item.querySelector('button'),
+    submenu: item.querySelector('.site-submenu'),
+    preview: false,
+  }));
+  const anchorPositioning = CSS.supports('position-area', 'block-end');
+  let wide;
+  let previousWidth = 0;
+  let pending = false;
+
+  function positionSubmenu({ trigger, submenu }) {
+    if (anchorPositioning || !submenu.matches(':popover-open')) return;
+    const anchor = trigger.getBoundingClientRect();
+    const box = submenu.getBoundingClientRect();
+    const top = anchor.bottom + box.height <= innerHeight
+      ? anchor.bottom : Math.max(0, anchor.top - box.height);
+    submenu.style.top = `${top}px`;
+    submenu.style.left = `${Math.max(0, Math.min(anchor.left, innerWidth - box.width))}px`;
+  }
+
+  function updateLayout() {
+    pending = false;
+    const width = nav.clientWidth;
+    // A collapsed row only needs remeasuring when more space becomes available.
+    if (wide === false && width <= previousWidth) {
+      previousWidth = width;
+      return;
+    }
+    previousWidth = width;
+    const wasOpen = menu.matches(':popover-open');
+    const focused = document.activeElement;
+    const wasWide = wide;
+    header.classList.add('is-measuring', 'is-wide');
+    menu.removeAttribute('popover');
+    wide = nav.scrollWidth <= nav.clientWidth;
+    header.classList.toggle('is-wide', wide);
+
+    if (wasWide !== wide) {
+      dropdowns.forEach(({ trigger, submenu }) => {
+        if (wide) submenu.setAttribute('popover', 'auto');
+        else submenu.removeAttribute('popover');
+        submenu.hidden = !wide;
+        trigger.setAttribute('aria-expanded', 'false');
+      });
+      if (!wide && menu.contains(focused)) menuButton.focus();
+      else if (wide && focused === menuButton) dropdowns[0].trigger.focus();
+      else if (wide && menu.contains(focused)) {
+        const dropdown = dropdowns.find(({ submenu }) => submenu.contains(focused));
+        dropdown?.trigger.focus();
+      }
+    }
+    if (!wide) {
+      menu.setAttribute('popover', 'auto');
+      if (wasOpen) {
+        menu.showPopover({ source: menuButton });
+        if (menu.contains(focused)) focused.focus();
+      }
+    }
+    requestAnimationFrame(() => header.classList.remove('is-measuring'));
+  }
+
+  function scheduleLayout() {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(updateLayout);
+  }
+
+  dropdowns.forEach(dropdown => {
+    const { item, trigger, submenu } = dropdown;
+    trigger.addEventListener('click', event => {
+      if (!wide) {
+        submenu.hidden = !submenu.hidden;
+        trigger.setAttribute('aria-expanded', String(!submenu.hidden));
+      } else if (dropdown.preview) {
+        // Clicking a hover preview pins it open instead of toggling it closed.
+        dropdown.preview = false;
+        event.preventDefault();
+      }
+    });
+    submenu.addEventListener('toggle', event => {
+      if (!wide) return;
+      trigger.setAttribute('aria-expanded', String(event.newState === 'open'));
+      if (event.newState === 'closed') dropdown.preview = false;
+      else positionSubmenu(dropdown);
+    });
+    item.addEventListener('pointerenter', event => {
+      if (!wide || event.pointerType === 'touch' || !matchMedia('(hover: hover)').matches) return;
+      if (!submenu.matches(':popover-open')) {
+        dropdown.preview = true;
+        submenu.showPopover({ source: trigger });
+      }
+    });
+    item.addEventListener('pointerleave', () => {
+      if (dropdown.preview && submenu.matches(':popover-open')) submenu.hidePopover();
+      dropdown.preview = false;
+    });
+    item.addEventListener('focusout', event => {
+      if (wide && event.relatedTarget && !item.contains(event.relatedTarget)
+          && submenu.matches(':popover-open')) submenu.hidePopover();
+    });
+  });
+
+  updateLayout();
+  const observer = new ResizeObserver(scheduleLayout);
+  observer.observe(nav);
+  observer.observe(menu);
+  if (!anchorPositioning) {
+    // Keep the fixed-position fallback attached while scrolling or resizing.
+    addEventListener('scroll', () => dropdowns.forEach(positionSubmenu), { passive: true });
+    addEventListener('resize', () => dropdowns.forEach(positionSubmenu));
+  }
+}
+
+// Normalize extensionless Jekyll paths, trailing slashes, and index pages alike.
+const normalizePath = path => path.replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/$/, '') || '/';
+const currentPath = normalizePath(location.pathname);
+nav?.querySelectorAll('a[href]').forEach(link => {
+  const url = new URL(link.href);
+  if (url.origin === location.origin && normalizePath(url.pathname) === currentPath) {
+    link.setAttribute('aria-current', 'page');
+  }
 });
-
-(function ($) {
-	'use strict';
-
-	$(window).on('scroll', function () {
-		var scrolling = $(this).scrollTop();
-		if (scrolling > 10) {
-			$('.navigation').addClass('nav-bg');
-		} else {
-			$('.navigation').removeClass('nav-bg');
-		}
-	});
-
-	// tab
-	$('.tab-content').find('.tab-pane').each(function (idx, item) {
-		var navTabs = $(this).closest('.code-tabs').find('.nav-tabs'),
-			title = $(this).attr('title');
-		navTabs.append('<li class="nav-item"><a class="nav-link" href="#">' + title + '</a></li>');
-	});
-
-	$('.code-tabs ul.nav-tabs').each(function () {
-		$(this).find('li:first').addClass('active');
-	});
-
-	$('.code-tabs .tab-content').each(function () {
-		$(this).find('div:first').addClass('active');
-	});
-
-	$('.nav-tabs a').click(function (e) {
-		e.preventDefault();
-		var tab = $(this).parent(),
-			tabIndex = tab.index(),
-			tabPanel = $(this).closest('.code-tabs'),
-			tabPane = tabPanel.find('.tab-pane').eq(tabIndex);
-		tabPanel.find('.active').removeClass('active');
-		tab.addClass('active');
-		tabPane.addClass('active');
-	});
-
-	// Accordions
-	$('.collapse').on('shown.bs.collapse', function () {
-		$(this).parent().find('.ti-plus').removeClass('ti-plus').addClass('ti-minus');
-	}).on('hidden.bs.collapse', function () {
-		$(this).parent().find('.ti-minus').removeClass('ti-minus').addClass('ti-plus');
-	});
-
-	//post slider
-	$('.post-slider').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		dots: false,
-		arrows: true,
-		prevArrow: '<button type=\'button\' class=\'prevArrow\'><i class=\'ti-angle-left\'></i></button>',
-		nextArrow: '<button type=\'button\' class=\'nextArrow\'><i class=\'ti-angle-right\'></i></button>'
-	});
-
-	// copy to clipboard
-	$('.copy').click(function () {
-		$(this).siblings('.inputlink').select();
-		document.execCommand('copy');
-	});
-
-
-	// instafeed
-	if (($('#instafeed').length) !== 0) {
-		var accessToken = $('#instafeed').attr('data-accessToken');
-		var userFeed = new Instafeed({
-			get: 'user',
-			resolution: 'low_resolution',
-			accessToken: accessToken,
-			template: '<div class="instagram-post"><a href="{{link}}" target="_blank"><img src="{{image}}"></a></div>'
-		});
-		userFeed.run();
-	}
-
-	setTimeout(function () {
-		$('.instagram-slider').slick({
-			dots: false,
-			speed: 300,
-			autoplay: true,
-			arrows: false,
-			slidesToShow: 8,
-			slidesToScroll: 1,
-			responsive: [{
-					breakpoint: 1024,
-					settings: {
-						slidesToShow: 6
-					}
-				},
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 4
-					}
-				},
-				{
-					breakpoint: 480,
-					settings: {
-						slidesToShow: 2
-					}
-				}
-			]
-		});
-	}, 1500);
-
-
-	// popup video
-	var $videoSrc;
-	$('.video-btn').click(function () {
-		$videoSrc = $(this).data('src');
-	});
-	console.log($videoSrc);
-	$('#myModal').on('shown.bs.modal', function (e) {
-		$('#video').attr('src', $videoSrc + '?autoplay=1&amp;modestbranding=1&amp;showinfo=0');
-	});
-	$('#myModal').on('hide.bs.modal', function (e) {
-		$('#video').attr('src', $videoSrc);
-	});
-
-
-
-})(jQuery);

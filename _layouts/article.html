@@ -4,13 +4,9 @@
     {% include head.html %}
 
     <body>
-        <header class="navigation fixed-top" style="background-color: #fff;">
-            <div class="container">
-                {% include menu.html %}
-            </div>
-        </header>
+        {% include site-header.html %}
 
-        <main class="news-page">
+        <main id="main-content" class="news-page" tabindex="-1">
             <article class="container news-article">
                 <header class="news-article-header">
                     <p class="news-kicker">{{ page.category | default: "News" | escape }}</p>
@@ -28,7 +24,8 @@
                     {% assign image_path = image_path | prepend: '/images/news/' %}
                 {% endunless %}
                 <figure class="news-figure">
-                    <img src="{{ image_path | relative_url | escape }}"
+                    <img src="{{ image_path | relative_url | escape }}" fetchpriority="high"
+                        {% include image-dimensions.html path=image_path %}
                         alt="{{ page.image_alt | default: page.title | escape }}"
                         class="img-fluid{% if page.image_fit == 'contain' %} news-image-contain{% endif %}{% if page.image_background == 'dark' %} news-image-dark{% endif %}">
                     {% if page.image_caption or page.image_credit %}

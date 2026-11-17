@@ -25,6 +25,7 @@ ruby scripts/prepare-registry.rb ../iri-facility-api-docs generated-registry
 bundle exec jekyll build
 ruby scripts/prepare-openapi.rb ../iri-facility-api-docs _site/api/v2
 bundle exec htmlproofer _site --disable-external --checks Links,Scripts --allow-missing-href
+bundle exec ruby scripts/validate-site-build.rb _site
 ruby scripts/validate-registry-build.rb ../iri-facility-api-docs _site
 ruby scripts/validate-openapi-build.rb ../iri-facility-api-docs _site
 ```
@@ -66,8 +67,24 @@ path. Both path forms respect the configured site `baseurl`. Set
 frame instead of cropping it. Set `image_background: dark` for a dark, padded
 background on both the card and article image, useful for white logo lettering.
 Article images always retain their natural aspect ratio.
+Record the intrinsic width and height of new or replaced local images in
+`_data/image_dimensions.json`; the homepage and article templates use these
+dimensions to reserve space before the images load.
 
 The image appears on the homepage card and article page. Articles without an
 image render without an image element or reserved image space. For wide tables,
 wrap the Markdown table in a `<div class="news-table-scroll" markdown="1">`
 with an accessible label and `tabindex="0"` so it can scroll on small screens.
+
+## Navigation
+
+The shared navigation uses native HTML popovers and a small JavaScript module.
+It switches to an inline layout when the links fit, including after font or
+window size changes. Nested links use ordinary Tab navigation. Browsers without
+CSS anchor positioning use measured dropdown positions; browsers without
+Popover support display the complete navigation in the page. With JavaScript
+disabled, native Popover browsers retain a Menu button with all nested links.
+Bootstrap supplies layout styles; its JavaScript, jQuery, and Slick are not
+loaded.
+Navigation links must resolve to an emitted file or a directory containing
+`index.html`; the rendered validator does not assume URL rewriting.

@@ -1,9 +1,9 @@
 <head>
     <meta charset="utf-8">
-    <title>{% if page.title %} {{ page.title }} - {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}</title>
 
     <!-- mobile responsive meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ page.summary | default: site.description | escape }}">
     {% if page.author %}<meta name="author" content="{{ page.author | escape }}">{% endif %}
     {% if page.registry_identifier %}
@@ -13,18 +13,21 @@
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     {% endif %}
 
-    <!-- plugins -->
-    <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/plugins/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="/plugins/slick/slick.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&amp;display=swap">
+
+    <!-- Layout and icons -->
+    <link rel="stylesheet" href="{{ '/plugins/bootstrap/bootstrap.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/plugins/themify-icons/themify-icons.css' | relative_url }}">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/css/style.css" media="screen">
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}" media="screen">
     {% if page.layout == "article" or page.url == "/" %}
     <link rel="stylesheet" href="{{ '/css/news.css' | relative_url }}" media="screen">
     {% endif %}
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+    <script type="module" src="{{ '/js/script.js' | relative_url }}"></script>
 </head>

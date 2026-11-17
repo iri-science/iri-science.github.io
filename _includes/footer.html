@@ -1,63 +1,26 @@
-<footer class="footer" style="margin-top: 5em;">
+<footer class="footer site-footer">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-12 text-center text-md-left mb-4">
-                <ul class="mb-3 list-inline">
-                    <!-- <li class="list-inline-item" style="margin-right: 1em;"><a href="https://science.osti.gov/ascr" target="_blank"><img src="/images/doe-logo.png" style="height: 1.7em;" /></a></li> -->
-                    <li class="list-inline-item" style="margin-right: 1em;"><a href="https://science.osti.gov/ascr" target="_blank"><img src="https://science.osti.gov/-/media/Logos/Color-seal--Blue-lettering---Stacked-horizontal-co-brand.png" style="height: 1.7em;" /></a></li>
-                    <li class="list-inline-item" style="margin-right: 1em;"><a href="https://www.anl.gov/" target="_blank"><img src="/images/anl-logo.png" style="height: 1.9em;" /></a></li>
-                    <li class="list-inline-item" style="margin-right: 1em;"><a href="https://www.jlab.org/" target="_blank"><img src="/images/jlab-logo.png" style="height: 1.7em;" /></a></li>
-                    <li class="list-inline-item" style="margin-right: 1em;"><a href="https://www.lbl.gov/" target="_blank"><img src="/images/lbnl-logo.png" style="height: 1.7em;" /></a></li>
-                    <li class="list-inline-item"><a href="https://www.ornl.gov/" target="_blank"><img src="/images/ornl-logo.png" style="height: 1.7em;" /></a></li>
-                </ul>
-                <p style="color: #999; line-height: 1.3em;">
-                &copy;2024&mdash;{{ site.time | date: '%Y' }}
-                DOE's Integrated Research Infrastructure Program<br />
-                Mantained by the IRI Management Council's Leadership Group
-                </p>
-            </div>
-            <!-- <div class="col-md-5 text-center text-md-left mb-4">
-                <ul class="list-inline footer-list mb-0">
-                    <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li class="list-inline-item"><a href="terms-conditions.html">Terms Conditions</a></li>
-                </ul>
-            </div>
-            <div class="col-md-2 text-center mb-4">
-                <a href="index.html"><img class="img-fluid" width="100px" src="images/logo.png"
-                        alt="Reader | Hugo Personal Blog Template"></a>
-            </div>
-            <div class="col-md-5 text-md-right text-center mb-4">
-                <ul class="list-inline footer-list mb-0">
-
-                    <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
-
-                    <li class="list-inline-item"><a href="#"><i class="ti-twitter-alt"></i></a></li>
-
-                    <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
-
-                    <li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
-
-                    <li class="list-inline-item"><a href="#"><i class="ti-youtube"></i></a></li>
-
-                </ul>
-            </div> -->
-            <div class="col-12">
-                <div class="border-bottom border-default"></div>
-            </div>
-        </div>
+        <ul class="footer-logos" role="list">
+            <li><a href="https://science.osti.gov/ascr" target="_blank" rel="noopener"><img src="https://science.osti.gov/-/media/Logos/Color-seal--Blue-lettering---Stacked-horizontal-co-brand.png" alt="U.S. Department of Energy, Office of Science" width="4341" height="770" loading="lazy"></a></li>
+            <li><a href="https://www.anl.gov/" target="_blank" rel="noopener"><img src="{{ '/images/anl-logo.png' | relative_url }}" alt="Argonne National Laboratory" width="300" height="108" loading="lazy"></a></li>
+            <li><a href="https://www.jlab.org/" target="_blank" rel="noopener"><img src="{{ '/images/jlab-logo.png' | relative_url }}" alt="Jefferson Lab" width="294" height="74" loading="lazy"></a></li>
+            <li><a href="https://www.lbl.gov/" target="_blank" rel="noopener"><img src="{{ '/images/lbnl-logo.png' | relative_url }}" alt="Lawrence Berkeley National Laboratory" width="368" height="80" loading="lazy"></a></li>
+            <li><a href="https://www.ornl.gov/" target="_blank" rel="noopener"><img src="{{ '/images/ornl-logo.png' | relative_url }}" alt="Oak Ridge National Laboratory" width="2048" height="510" loading="lazy"></a></li>
+        </ul>
+        <p class="footer-credit">
+            &copy;2024&mdash;{{ site.time | date: '%Y' }}
+            DOE's Integrated Research Infrastructure Program<br>
+            Maintained by the IRI Management Council's Leadership Group
+        </p>
+        <div class="border-bottom border-default"></div>
     </div>
 </footer>
 
-<!-- JS Plugins -->
-<script src="/plugins/jQuery/jquery.min.js"></script>
-<script src="/plugins/bootstrap/bootstrap.min.js"></script>
-<script src="/plugins/slick/slick.min.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLFLYHW6DJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-CLFLYHW6DJ');
 </script>

@@ -7,9 +7,9 @@ permalink: /
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h3>DOE's Integrated Research Infrastructure (IRI) seamlessly links DOE's experimental and
+                <h2 class="h3">DOE's Integrated Research Infrastructure (IRI) seamlessly links DOE's experimental and
                     observational scientific user facilities, data assets, and advanced computing resources so that
-                    researchers can combine these tools in novel ways that radically accelerate discovery</h3>
+                    researchers can combine these tools in novel ways that radically accelerate discovery</h2>
                 <p class="col-12" style="margin: auto;">The term ASCR Facilities Ecosystem represents the fact that
                     ASCR's computing (<a href="https://www.alcf.anl.gov/" target="_blank">ALCF</a>, <a
                         href="https://www.olcf.ornl.gov/" target="_blank">OLCF</a>, <a href="https://www.nersc.gov/"
@@ -26,23 +26,23 @@ permalink: /
     <div class="container">
         <div class="row pt-4">
             <div class="col-lg-3 col-sm-6 text-center mb-4">
-                <h3 class="border-bottom pb-3 mb-3 mx-2">DOE Facility Interface Improvement</h3>
+                <h2 class="h3 border-bottom pb-3 mb-3 mx-2">DOE Facility Interface Improvement</h2>
                 <p>IRI is designed to create better interfaces between DOE user facilities</p>
             </div>
 
             <div class="col-lg-3 col-sm-6 text-center mb-4">
-                <h3 class="border-bottom pb-3 mb-3 mx-2">Integrated Frameworks for IRI</h3>
+                <h2 class="h3 border-bottom pb-3 mb-3 mx-2">Integrated Frameworks for IRI</h2>
                 <p>IRI includes frameworks for integration in software, policy and governance</p>
             </div>
 
             <div class="col-lg-3 col-sm-6 text-center mb-4">
-                <h3 class="border-bottom pb-3 mb-3 mx-2">Enhancing Facility Capabilities</h3>
+                <h2 class="h3 border-bottom pb-3 mb-3 mx-2">Enhancing Facility Capabilities</h2>
                 <p>IRI layers on top of existing (and future) facility capabilities, to enhance integration and
                     usability/user experience</p>
             </div>
 
             <div class="col-lg-3 col-sm-6 text-center mb-4">
-                <h3 class="border-bottom pb-3 mb-3 mx-2">Managing ASCR Integration</h3>
+                <h2 class="h3 border-bottom pb-3 mb-3 mx-2">Managing ASCR Integration</h2>
                 <p>IRI is the means by which we manage the ASCR ecosystem and its further integration that is
                     required specifically for the Office of Science</p>
             </div>
@@ -74,6 +74,7 @@ permalink: /
                         {% assign image_path = image_path | prepend: '/images/news/' %}
                     {% endunless %}
                     <img src="{{ image_path | relative_url | escape }}"
+                        {% include image-dimensions.html path=image_path %}
                         class="card-img-top{% if item.image_fit == 'contain' %} news-image-contain{% endif %}{% if item.image_background == 'dark' %} news-image-dark{% endif %}"
                         alt="{{ item.image_alt | default: item.title | escape }}" loading="lazy">
                     {% endif %}
@@ -96,20 +97,26 @@ permalink: /
             {% for event in events limit: 2 %}
             <div class="col-lg-3 mb-5">
                 <article class="card event-card">
-                    <h2 class="card-header h5">{{ event.headline | escape }}</h2>
-                    <div class="post-slider slider-sm">
-                        <img src="{{ event.image | relative_url | escape }}"
+                    <h3 class="card-header h5">{{ event.headline | escape }}</h3>
+                    <div>
+                        {% assign event_image = event.image %}
+                        {% unless event_image contains '://' %}
+                            {% assign image_start = event_image | slice: 0, 1 %}
+                            {% unless image_start == '/' %}{% assign event_image = event_image | prepend: '/' %}{% endunless %}
+                        {% endunless %}
+                        <img src="{% if event_image contains '://' %}{{ event_image | escape }}{% else %}{{ event_image | relative_url | escape }}{% endif %}"
+                            {% include image-dimensions.html path=event_image %}
                             class="card-img-top{% if event.image_background == 'dark' %} news-image-dark{% endif %}"
                             alt="{{ event.image_alt | default: event.headline | escape }}" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h3 class="h4 mb-3"><a class="post-title" href="{{ event.url | relative_url }}">{{ event.subtitle | escape }}</a></h3>
+                        <h4 class="h4 mb-3"><a class="post-title" href="{{ event.url | relative_url }}">{{ event.subtitle | escape }}</a></h4>
                         <ul class="card-meta list-inline">
                             <li class="list-inline-item">
-                                <i class="ti-calendar"></i>{{ event.date | date_to_string: "ordinal", "US" }}
+                                <i class="ti-calendar" aria-hidden="true"></i>{{ event.date | date_to_string: "ordinal", "US" }}
                             </li>
                         </ul>
-                        <a href="{{ event.url | relative_url }}" class="btn btn-outline-primary">Read More</a>
+                        <a href="{{ event.url | relative_url }}" class="btn btn-outline-primary" aria-label="Read More: {{ event.subtitle | escape }}">Read More</a>
                     </div>
                 </article>
             </div>

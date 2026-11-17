@@ -107,7 +107,10 @@ class PrepareOpenapiTest < Minitest::Test
 
   def test_navigation_groups_iri_api_resources
     menu = ROOT.join("_includes/menu.html").read
-    dropdown = menu.match(/IRI API Resources.*?<div class="dropdown-menu"[^>]*>(.*?)<\/div>\s*<\/li>/m)
+    menu = menu.gsub(/\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}/, '\1')
+    trigger = menu.match(/<button[^>]*id="iri-api-resources-menu"[^>]*popovertarget="([^"]+)"[^>]*>/)
+    refute_nil trigger
+    dropdown = menu.match(/<ul[^>]*id="#{Regexp.escape(trigger[1])}"[^>]*>(.*?)<\/ul>/m)
 
     refute_nil dropdown
     %w[
@@ -119,8 +122,8 @@ class PrepareOpenapiTest < Minitest::Test
       /registry-manifest.json
     ].each do |href|
       assert_includes dropdown[1], %(href="#{href}")
+      assert_equal 1, menu.scan(%(href="#{href}")).length, "#{href} should appear once, inside API Resources"
     end
-    refute_match(/<li class="nav-item">\s*<a class="nav-link" href="\/(?:profiles|rels)\//m, menu)
   end
 
   private

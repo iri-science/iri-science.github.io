@@ -14,9 +14,9 @@ permalink: /events/sc26/
 
 <section class="section-sm">
     <div class="container mb-5">
-        <h1 class="h2 mb-4">IRI @ SC26</h1>
+        <h2 class="h2 mb-4">IRI @ SC26</h2>
         <div class="text-center mb-5">
-            <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | escape }}"
+            <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | escape }}" {% include image-dimensions.html path=page.image %}
                 class="img-fluid p-3" style="width: 40rem; background-color: #132536;">
         </div>
         <p><strong>November 15–20, 2026 &middot; McCormick Place, Chicago, Illinois</strong></p>
@@ -28,7 +28,7 @@ permalink: /events/sc26/
         <p><a href="{{ '/news/2026-sc26-demos/' | relative_url }}" class="btn btn-outline-primary">Demo details and schedule</a></p>
 
         <section class="mt-5 mb-4" aria-labelledby="community-work-session">
-            <h2 id="community-work-session" class="h3 mb-3">IRI Developer &amp; User Community Work Session</h2>
+            <h3 id="community-work-session" class="h3 mb-3">IRI Developer &amp; User Community Work Session</h3>
             <p><strong><time datetime="2026-11-17T11:00:00-06:00">Tuesday, November 17, 11:00 a.m. CST</time></strong></p>
             <p>Join an open working session for Integrated Research Infrastructure developers, facility teams, and
                 users to discuss current implementations, integration challenges, priorities, and future capabilities.
