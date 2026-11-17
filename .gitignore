@@ -6,3 +6,4 @@ generated-registry/
 _registry-source/
 vendor/
 .DS_Store
+.idea/
