@@ -24,14 +24,14 @@ category: Subcommittee
 <section class="section-sm">
     <div class="container">
         <div class="row no-gutters text-center">
-            <h3>Members</h3>
+            <h2 class="h3">Members</h2>
         </div>
       <div class="row no-gutters">
         {% for m in site.data.ts.outreach %}
         <div class="col-lg-3 col-sm-6 author-block">
           <div class="author-card text-center">
-            <img class="author-image" src="{{m.photo}}">
-            <h4 class="mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h4>
+            <img class="author-image" src="{{ m.photo | escape }}" alt="{{ m.name | escape }}" width="150" height="150" loading="lazy">
+            <h3 class="h4 mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h3>
             <p class="mb-0">{{m.institution}}</p>
             <strong>{{m.role}}</strong>
           </div>

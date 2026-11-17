@@ -1,18 +1,15 @@
-<header class="navigation fixed-top" style="background-color: #fff;">
-    <div class="container">
-        {% include menu.html %}
-    </div>
-</header>
-
 <div class="banner text-center">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 mx-auto">
-                <h2 style="color: #fff">{% if page.subtitle %} {{ page.subtitle }} {% else %} {{page.title}} {% endif %}</h2>
-                {% if page.category %}<h3 class="mb-5" style="color: #bbb; font-size: 1.2em; text-transform: uppercase">{{page.category}}</h3>{% endif %}
+                {% if page.layout == 'registry' %}
+                <p class="banner-title">{{ page.title | escape }}</p>
+                {% else %}
+                <h1 class="banner-title">{{ page.subtitle | default: page.title | escape }}</h1>
+                {% endif %}
+                {% if page.category %}<p class="banner-label mb-5">{{ page.category | escape }}</p>{% endif %}
             </div>
         </div>
     </div>
 
-    
 </div>

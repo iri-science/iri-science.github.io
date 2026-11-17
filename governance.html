@@ -9,7 +9,7 @@ category: About
     <div class="container">
         <div class="row">
             <div class="col-12 mb-5">
-                <h3>Governance</h3>
+                <h2 class="h3">Governance</h2>
                 <p>The U.S. Department of Energy established this Agency Priority Goal for fiscal years 2024-25:
                     "Building on the <a href="https://doi.org/10.2172/1984466" target="_blank">Integrated Research
                         Infrastructure (IRI) report</a> published in 2023, the National Laboratories will work with the
@@ -28,20 +28,20 @@ category: About
                 </ul>
                 <!-- <p>Governance structure will be inclusive; other offices will be engaged and participate.</p>
 
-                <img src="/images/iri-structure.png" style="width: 80%;" /><br />
+                <img src="{{ '/images/iri-structure.png' | relative_url }}" alt="IRI organizational structure, described in the following Management Council and subcommittee sections." width="1806" height="740" style="height: auto; width: 80%;" /><br />
                 <span style="font-size: 0.8em; font-style: italic;">The initial IRI program and management structure.
                     Federal parts are in blue.</span>
                 <br /><br /><br /> -->
             </div>
 
             <div class="col-12 mb-3">
-                <h4>IRI Management Council</h4>
+                <h3 class="h4">IRI Management Council</h3>
                 <p>In FY 2024, the Office of Science directed the ASCR Facilities to stand up the Management Council,
                     which will expand to include broader participation in FY 2025.</p>
             </div>
 
             <div class="col-12 mb-2">
-                <h4>Management Council Executive Committee</h4>
+                <h3 class="h4">Management Council Executive Committee</h3>
                 <p>The Management Council’s Executive Committee provides institutional executive oversight of IRI
                     efforts in the field. The Executive Committee is initially composed of the directors of the ASCR
                     Facilities. The Executive Committee’s primary responsibilities working with the Office of Science
@@ -80,8 +80,8 @@ category: About
                     {% for m in site.data.structure.executive %}
                     <div class="col-lg-3 col-sm-6 author-block">
                         <div class="author-card text-center">
-                            <img class="author-image" src="{{m.photo}}">
-                            <h4 class="mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h4>
+                            <img class="author-image" src="{{ m.photo | escape }}" alt="{{ m.name | escape }}" width="150" height="150" loading="lazy">
+                            <h3 class="h4 mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h3>
                             <p class="mb-0">{{m.institution}}</p>
                             <strong>{{m.role}}</strong>
                         </div>
@@ -91,7 +91,7 @@ category: About
             </div>
 
             <div class="col-12 mb-5">
-                <h4>Management Council: Leadership Group</h4>
+                <h3 class="h4">Management Council: Leadership Group</h3>
                 <p>The Management Council’s Leadership Group is a conduit for communication of objectives and progress:
                     it communicates with the leads of the technical and engagement/outreach subcommittees and also
                     reports into the IRI Executive committee.</p>
@@ -99,8 +99,8 @@ category: About
                     {% for m in site.data.structure.leadership %}
                     <div class="col-lg-3 col-sm-6 author-block">
                         <div class="author-card text-center">
-                            <img class="author-image" src="{{m.photo}}">
-                            <h4 class="mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h4>
+                            <img class="author-image" src="{{ m.photo | escape }}" alt="{{ m.name | escape }}" width="150" height="150" loading="lazy">
+                            <h3 class="h4 mb-2"><a href="{{m.url}}" class="post-title">{{m.name}}</a></h3>
                             <p class="mb-0">{{m.institution}}</p>
                             <strong>{{m.role}}</strong>
                         </div>
@@ -110,13 +110,13 @@ category: About
             </div>
 
             <div class="col-12 mb-3">
-                <h3>Management Council: Technical Subcommittees</h3>
+                <h2 class="h3">Management Council: Technical Subcommittees</h2>
                 <p>Currently, the Management Council’s Leadership Group is actively establishing and organizing its
                     Technical Subcommittee to provide specialized guidance and oversight for the program's technical
                     initiatives.</p>
             </div>
             <div class="col-12 mb-5">
-                <h4>Outreach and Engagement</h4>
+                <h3 class="h4">Outreach and Engagement</h3>
                 <p>The role of the Outreach/Engagement Technical subcommittee is to coordinate work being done with the
                     pathfinder science teams, identify common requirements and communicate to the Leadership team. This
                     subcommittee is also responsible for broader community engagement, working with science teams who
@@ -130,7 +130,7 @@ category: About
             </div>
 
             <div class="col-12 mb-5">
-                <h4>Interfaces</h4>
+                <h3 class="h4">Interfaces</h3>
                 <p>This IRI Interfaces Technical Subcommittee works to gather requirements, define use cases, and
                     specify unified
                     interfaces for the DOE ASCR Facilities. Beyond defining Application Programmable Interfaces (API),
@@ -145,7 +145,7 @@ category: About
             </div>
 
             <div class="col-12 mb-5">
-                <h4>Trusted IRI Designs (TRUSTID)</h4>
+                <h3 class="h4">Trusted IRI Designs (TRUSTID)</h3>
                 <p>The Integrated Research Infrastructure (IRI) TRUSTID Technical Subcommittee is established to enable
                     trustworthy and performant execution of cross facility workflows. The TRUSTID subcommittee’s mission
                     is to create a set of design patterns and policy elements that mitigate risks, safeguard assets, and

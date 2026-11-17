@@ -58,6 +58,9 @@ jobs:
       - name: Check rendered links
         run: bundle exec htmlproofer _site --disable-external --checks Links,Scripts --allow-missing-href
 
+      - name: Check shared accessibility markup
+        run: bundle exec ruby scripts/validate-site-build.rb _site
+
       - name: Validate registry publication
         run: ruby scripts/validate-registry-build.rb _registry-source _site
 

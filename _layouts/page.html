@@ -5,9 +5,13 @@
     
     <body>
 
-        {% include header_page.html %}
+        {% include site-header.html %}
 
-        {{ content }}
+        <main id="main-content" tabindex="-1">
+            {% include header_page.html %}
+
+            {{ content }}
+        </main>
 
         {% include footer.html %}
 
