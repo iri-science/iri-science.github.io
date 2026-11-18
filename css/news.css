@@ -38,6 +38,13 @@
   height: auto;
 }
 
+.news-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: #0b1118;
+}
+
 .news-figure figcaption {
   margin-top: 0.5rem;
 }
