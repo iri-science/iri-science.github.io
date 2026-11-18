@@ -12,21 +12,23 @@ image_alt: "Visitors gather around a monitor showing the SSRL beamline workload 
 image_caption: "Attendees watch the SSRL beamline workload demonstration at SC26."
 ---
 
-_At SC26, an X-ray tomography workflow from the Stanford Synchrotron Radiation Lightsource showed how one portable container can move among five computing environments through a common IRI interface._
+_At SC26, an X-ray tomography workflow from the Stanford Synchrotron Radiation Lightsource showed how one portable container can move among five computing facilities through a common IRI interface._
 
 Tim J. Dunn of the Stanford Synchrotron Radiation Lightsource (SSRL) at SLAC National Accelerator Laboratory presented the beamline workload as the scientific-user half of **ESnet on AWS: A Cloud Facility Behind the IRI API**. The demonstration, developed with Justas Balcas and John MacAuley of ESnet, has two SC26 sessions at the Department of Energy booth in Chicago: November 16 at 8:00 p.m. and November 18 at 4:00 p.m. Central.
+
+The broader American Science Cloud tomography workflow spans the Advanced Photon Source, the Advanced Light Source, and SSRL, and launches through IRI.
 
 The campaign behind the presentation covered ALCF Polaris, NERSC Perlmutter, OLCF Defiant, SLAC S3DF, and an AWS environment operated by ESnet. Each recorded run was launched separately from the same dashboard, through the target facility's IRI API.
 
 ## From a scan to one portable container
 
-The workload starts with X-ray microtomography data from an SSRL battery-cathode experiment. It uses `tomocupy` for GPU reconstruction, writes the volume and image pyramids in OME-Zarr, and applies the SAM3 segmentation model. A checkpoint fine-tuned by Bo Su for SSRL battery-cathode data under SYNAPS-I travels beside the TomoCloud container; the container itself holds the rest of the pipeline.
+The workload starts with X-ray microtomography data from an SSRL battery-cathode experiment. It uses `tomocupy` for GPU reconstruction, writes the volume and image pyramids in OME-Zarr, and applies the SAM3 segmentation model. A checkpoint fine-tuned for SSRL battery-cathode data under SYNAPS-I travels beside the TomoCloud container; the container itself holds the rest of the pipeline.
 
 <figure class="news-figure">
     <a href="{{ '/images/news/sc26-ssrl-portable-container.webp' | relative_url }}">
         <img src="{{ '/images/news/sc26-ssrl-portable-container.webp' | relative_url }}"
             {% include image-dimensions.html path="/images/news/sc26-ssrl-portable-container.webp" %}
-            alt="Diagram of the TomoCloud pipeline: tomocupy GPU reconstruction, OME-Zarr volume and pyramids, and SAM3 segmentation, packaged as one container with fine-tuned model weights."
+            alt="Diagram of the TomoCloud pipeline: tomocupy GPU reconstruction, OME-Zarr volume and pyramids, and SAM3 segmentation, packaged as one container, with the fine-tuned model weights supplied beside it."
             loading="lazy">
     </a>
     <figcaption>
@@ -35,7 +37,7 @@ The workload starts with X-ray microtomography data from an SSRL battery-cathode
     </figcaption>
 </figure>
 
-The container image ran under Kubernetes on AWS, Apptainer at ALCF, OLCF, and S3DF, and `podman-hpc` at NERSC. Those execution environments, along with local queues, storage, and policy, remained facility-specific. The IRI adapters translated the common client operations for each site.
+The container image ran under Kubernetes on AWS, Apptainer at ALCF, OLCF, and S3DF, and `podman-hpc` at NERSC. Those execution environments, along with local queues, storage, and policy, remained facility-specific. The dashboard's adapter for each facility translated the common client operations for that site's IRI API.
 
 ## Five separate launches from one dashboard
 
@@ -75,11 +77,11 @@ The presentation compared the segmented volume from all five recorded runs. In s
     </figcaption>
 </figure>
 
-The 92.9 percent figure measures agreement, not scientific accuracy. Small differences appeared mainly in crowded areas where particles touch. Repeat runs at one facility varied by a similar amount, consistent with the model's own run-to-run variation rather than a facility effect.
+The 92.9 percent figure measures agreement, not scientific accuracy. In the slice shown, the differences sit in a few crowded spots where particles touch. Repeat runs at one facility varied by a similar amount, so most of the difference is run-to-run variation in the segmentation step, not a facility effect.
 
 ## Turnaround on the scale of a sample cycle
 
-The five campaign runs took 12 to 30 minutes from launch to completed result. That interval included queueing, input transfer, computation, and returning results to the dashboard. It is comparable to the 20-to-30-minute sample cycle at SSRL beamline 6-2, giving scientists a route toward seeing one sample's analysis while the next sample is on the stage.
+The five campaign runs took 12 to 30 minutes from launch to completed result. That interval included queueing, input transfer where the scan was not already at the facility, computation, and bringing the results back to SSRL. It is comparable to the 20-to-30-minute sample cycle at SSRL beamline 6-2, giving scientists a route toward seeing one sample's analysis while the next sample is on the stage.
 
 Queue selection still mattered. An earlier run of the same job waited 42 minutes in a debug queue; the run used in the comparison waited 31 seconds in an express queue. The presentation treated these results as workflow timings, not a hardware benchmark, because the five facilities used different GPUs, queues, node counts, and storage systems.
 
