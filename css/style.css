@@ -327,7 +327,15 @@ mark {
 }
 .menu-button {
   anchor-name: --site-menu-button;
-  padding: 0.625rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.375rem;
+}
+.site-nav .menu-button:hover {
+  background: #f3f7f5;
 }
 .site-menu,
 .site-submenu {
@@ -341,6 +349,7 @@ mark {
   inset-block-start: 4.5rem;
   inset-block-start: anchor(--site-menu-button bottom);
   inset-inline-end: 1rem;
+  inset-inline-end: anchor(--site-menu-button end);
   inline-size: min(90dvw, 26rem);
   max-inline-size: calc(100dvw - 2rem);
   max-block-size: calc(100dvh - 6rem);
@@ -363,13 +372,24 @@ mark {
 .site-nav-link {
   font-weight: 600;
 }
+.site-dropdown > .site-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  inline-size: 100%;
+}
 .site-nav-link i {
   margin-inline-start: 0.25rem;
   font-size: 0.75rem;
 }
+.site-nav-link[aria-expanded="true"] i {
+  rotate: 180deg;
+}
 .site-submenu {
   margin: 0;
-  padding: 0 0 0.5rem 1rem;
+  padding-block: 0 0.5rem;
+  padding-inline: 1rem 0;
 }
 .site-submenu[hidden] {
   display: none;
@@ -392,51 +412,6 @@ mark {
   text-decoration-thickness: 0.15em;
   text-underline-offset: 0.3em;
 }
-.site-header.is-wide .menu-button {
-  display: none;
-}
-.site-header.is-wide .site-menu {
-  position: static;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  inline-size: auto;
-  max-inline-size: none;
-  max-block-size: none;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  border: 0;
-  box-shadow: none;
-}
-.site-header.is-wide .site-nav-link {
-  white-space: nowrap;
-}
-.site-header.is-wide .site-submenu {
-  position: absolute;
-  position-area: block-end span-inline-end;
-  position-try-fallbacks: flip-block, flip-inline;
-  inset: auto;
-  block-size: auto;
-  inline-size: max-content;
-  max-inline-size: calc(100dvw - 2rem);
-  max-block-size: calc(100dvh - 6rem);
-  margin: 0;
-  padding: 0.5rem;
-  overflow: auto;
-  border: 1px solid #ebebeb;
-  border-radius: 0.5rem;
-  box-shadow: 0 1rem 3rem rgb(0 0 0 / 12%);
-}
-.site-header.is-wide .site-submenu:not(:popover-open) {
-  display: none;
-}
-@supports not (position-area: block-end) {
-  .site-header.is-wide .site-submenu {
-    position: fixed;
-    margin: 0;
-  }
-}
 /* An expanded, in-flow navigation is the fallback when Popover is unavailable. */
 @supports not selector(:popover-open) {
   .site-header {
@@ -454,9 +429,6 @@ mark {
     max-inline-size: none;
     max-block-size: none;
   }
-}
-.site-header.is-measuring * {
-  transition: none;
 }
 
 /* search */

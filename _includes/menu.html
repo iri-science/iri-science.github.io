@@ -1,9 +1,9 @@
 <nav class="site-nav" aria-label="Primary">
     <a class="site-brand" href="{{ '/' | relative_url }}"><img src="{{ '/images/doe-icon-old.png' | relative_url }}" alt="" width="600" height="600"> IRI</a>
-    <button class="menu-button" type="button" popovertarget="navigation" aria-controls="navigation"><i class="ti-menu" aria-hidden="true"></i> Menu</button>
+    <button class="menu-button" type="button" popovertarget="navigation" popovertargetaction="toggle" aria-controls="navigation"><i class="ti-menu" aria-hidden="true"></i> Menu</button>
     <ul class="site-menu" id="navigation" popover="auto">
         <li class="site-dropdown">
-            <button class="site-nav-link" type="button" popovertarget="about-menu" aria-controls="about-menu">About IRI <i class="ti-angle-down" aria-hidden="true"></i></button>
+            <button class="site-nav-link" type="button" aria-controls="about-menu">About IRI <i class="ti-angle-down" aria-hidden="true"></i></button>
             <ul class="site-submenu" id="about-menu">
                 <li><a href="{{ '/about.html' | relative_url }}">What is IRI?</a></li>
                 <li><a href="{{ '/about/governance.html' | relative_url }}">Governance</a></li>
@@ -13,7 +13,7 @@
         <li><a class="site-nav-link" href="{{ '/in-practice/' | relative_url }}">IRI in Practice</a></li>
         <li><a class="site-nav-link" href="{{ '/implementations/' | relative_url }}">Implementations</a></li>
         <li class="site-dropdown">
-            <button class="site-nav-link" type="button" popovertarget="developers-menu" aria-controls="developers-menu">Developers <i class="ti-angle-down" aria-hidden="true"></i></button>
+            <button class="site-nav-link" type="button" aria-controls="developers-menu">Developers <i class="ti-angle-down" aria-hidden="true"></i></button>
             <ul class="site-submenu" id="developers-menu">
                 <li><a href="{{ '/developers/' | relative_url }}">Build with IRI</a></li>
                 <li><a href="{{ '/iri-2-0/' | relative_url }}">IRI 2.0 overview</a></li>
@@ -22,7 +22,7 @@
             </ul>
         </li>
         <li class="site-dropdown">
-            <button class="site-nav-link" type="button" popovertarget="community-menu" aria-controls="community-menu">Community <i class="ti-angle-down" aria-hidden="true"></i></button>
+            <button class="site-nav-link" type="button" aria-controls="community-menu">Community <i class="ti-angle-down" aria-hidden="true"></i></button>
             <ul class="site-submenu" id="community-menu">
                 <li><a href="{{ '/community/' | relative_url }}">Join the IRI community</a></li>
                 <li><a href="{{ '/ts/outreach/' | relative_url }}">Outreach and Engagement</a></li>
@@ -31,14 +31,14 @@
             </ul>
         </li>
         <li class="site-dropdown">
-            <button class="site-nav-link" type="button" popovertarget="events-menu" aria-controls="events-menu">News &amp; Events <i class="ti-angle-down" aria-hidden="true"></i></button>
+            <button class="site-nav-link" type="button" aria-controls="events-menu">News &amp; Events <i class="ti-angle-down" aria-hidden="true"></i></button>
             <ul class="site-submenu" id="events-menu">
                 <li><a href="{{ '/news/' | relative_url }}">IRI News</a></li>
                 <li><a href="{{ '/events/' | relative_url }}">IRI Events</a></li>
             </ul>
         </li>
         <li class="site-dropdown">
-            <button class="site-nav-link" id="iri-api-resources-menu" type="button" popovertarget="api-resources-menu" aria-controls="api-resources-menu">IRI API Resources <i class="ti-angle-down" aria-hidden="true"></i></button>
+            <button class="site-nav-link" id="iri-api-resources-menu" type="button" aria-controls="api-resources-menu">IRI API Resources <i class="ti-angle-down" aria-hidden="true"></i></button>
             <ul class="site-submenu" id="api-resources-menu">
                 <li><a href="https://doe-iri.github.io/iri-facility-api-docs/">Facility API Documentation</a></li>
                 <li><a href="{{ '/profiles/' | relative_url }}">Profiles</a></li>
