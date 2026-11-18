@@ -1,0 +1,16 @@
+- id: flexible
+  title: Flexible resource descriptions
+  summary: Describe different kinds of infrastructure through a common resource model, with shared profiles for the details that make each resource useful.
+  url: /iri-2-0/#flexible
+- id: discoverable
+  title: Discoverable capabilities
+  summary: Help software find resources, follow their relationships, and discover applicable operations through published links and service descriptions.
+  url: /iri-2-0/#discoverable
+- id: agentic
+  title: Workflows and AI agents
+  summary: Give workflow tools and authorized AI agents explicit information about resources and operations, reducing the need for site-specific assumptions.
+  url: /iri-2-0/#agentic
+- id: local-control
+  title: Shared interfaces, local control
+  summary: Connect independently operated infrastructure while providers retain their own access policies, allocations, and operational decisions.
+  url: /about.html

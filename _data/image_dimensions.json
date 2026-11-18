@@ -31,5 +31,9 @@
   "/images/sc25-banner.png": {"width": 2713, "height": 1860},
   "/images/sc25-logo.png": {"width": 647, "height": 274},
   "/images/sc26-exhibits.png": {"width": 1600, "height": 1000},
-  "/images/sc26_hor_color_white.png": {"width": 664, "height": 311}
+  "/images/sc26_hor_color_white.png": {"width": 664, "height": 311},
+  "/images/esnet-logo.png": {"width": 1479, "height": 401},
+  "/images/slac-logo.svg": {"width": 236, "height": 40},
+  "/images/pnnl-logo.svg": {"width": 180, "height": 135},
+  "/images/fermilab-logo.png": {"width": 961, "height": 174}
 }

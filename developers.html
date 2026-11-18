@@ -1,0 +1,34 @@
+---
+layout: page
+permalink: /developers/
+title: "Build with IRI"
+summary: "Find IRI workflow examples, client tooling, reference implementations, facility adapters, and authoritative technical guidance."
+content_page: true
+---
+
+<section class="iri-section"><div class="container">
+    <div class="iri-section-intro"><h2>Choose your starting point</h2><p>Build workflows across independently operated infrastructure, connect a provider, or contribute to the shared contract.</p></div>
+    <ul class="iri-grid" role="list">
+        <li><article class="iri-card"><h3><a href="https://doe-iri.github.io/iri-facility-api-docs/">Published technical guidance</a></h3><p>Architecture explanations, discovery patterns, and implementation guidance.</p></article></li>
+        <li><article class="iri-card"><h3><a href="https://github.com/doe-iri">Primary development organization</a></h3><p>Reusable software and examples developed in the DOE IRI GitHub organization.</p></article></li>
+        <li><article class="iri-card"><h3><a href="https://github.com/doe-iri/iri-facility-api-docs">Active specification source</a></h3><p>Versioned specifications, RFCs, registries, profiles, and OpenAPI sources.</p></article></li>
+    </ul>
+    <div class="iri-prose">
+        <h2 id="workflow-developers">Build a scientific workflow</h2>
+        <p>Begin with <a href="https://doe-iri.github.io/iri-facility-api-docs/getting-started/">Getting Started</a> and the <a href="https://github.com/doe-iri/iri-facility-api-examples">workflow notebooks</a>. The <a href="https://github.com/doe-iri/iri-facility-api-examples/tree/main/genesis_hackathon">public hackathon exercises</a> provide a repeatable discovery, submission, monitoring, and output-retrieval sequence.</p>
+        <p>Follow each provider's documentation for credentials, allocations, and supported operations. Use the deployed service description to understand the version and capabilities available to your workflow.</p>
+        <h2 id="infrastructure-providers">Connect infrastructure</h2>
+        <p>Read the <a href="https://doe-iri.github.io/iri-facility-api-docs/implementation-guide/">Implementation Guide</a>, map your resources to shared types and profiles, and connect provider-specific business logic through an adapter. The <a href="https://doe-iri.github.io/iri-facility-api-docs/hypermedia-and-discovery/">Hypermedia and Discovery guide</a> explains how to advertise relationships and operations.</p>
+        <p>Use the <a href="{{ '/testbed.html' | relative_url }}">Testbed page</a> for experimentation context and <a href="{{ '/implementations/' | relative_url }}">meet the implementation community</a> for collaboration.</p>
+        <h2 id="specification-contributors">Develop the shared contract</h2>
+        <p>The <a href="{{ '/iri-2-0/' | relative_url }}">IRI 2.0 overview</a> introduces the current development model. Follow the <a href="https://doe-iri.github.io/iri-facility-api-docs/rfc-process/">RFC Process</a> and <a href="https://doe-iri.github.io/iri-facility-api-docs/contributing/">Contributing guide</a> to turn implementation experience into proposed changes.</p>
+    </div>
+    <h2 id="software">Software and examples</h2>
+    <ul class="iri-grid" role="list">
+        <li><article class="iri-card"><h3><a href="https://github.com/doe-iri/iri-facility-api-python">Python reference implementation</a></h3><p>The FastAPI framework delegates provider-specific behavior to facility adapters. Configure the API groups your provider implements.</p></article></li>
+        <li><article class="iri-card"><h3><a href="https://github.com/doe-iri/iri-facility-api-java">Java reference implementation</a></h3><p>A Spring Boot implementation documenting read-only facility metadata, resources, incidents, events, sites, and locations. Consult its README for current endpoint coverage.</p></article></li>
+        <li><article class="iri-card"><h3><a href="https://github.com/doe-iri/iri-facility-api-demo-adapter">Demo adapter starter</a></h3><p>Per-domain example adapters with demonstration data provide a starting point for replacing behavior with provider integrations.</p></article></li>
+        <li><article class="iri-card"><h3><a href="https://github.com/doe-iri/iri-facility-api-toolkit">Client and orchestration toolkit</a></h3><p>Python client tooling for compute workflows, with notebook examples and Airflow integration material in the repository.</p></article></li>
+        <li><article class="iri-card"><h3><a href="https://github.com/doe-iri/iri-facility-api-examples">Workflow notebooks and exercises</a></h3><p>Examples of authentication, filesystem operations, compute submission, and output collection, including the public hackathon suite.</p></article></li>
+    </ul>
+</div></section>

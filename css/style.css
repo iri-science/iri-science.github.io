@@ -1664,7 +1664,7 @@ main img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 0.875rem;
   padding: 0;
   list-style: none;
 }
@@ -1672,6 +1672,18 @@ main img {
   inline-size: auto;
   block-size: 1.7em;
   max-inline-size: 100%;
+}
+.footer-logos a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+}
+.footer-logos .footer-logo-pnnl {
+  block-size: 3em;
+}
+.footer-logos .footer-logo-fermilab {
+  padding: 0.25em 0.5em;
+  background: #004c97;
 }
 .footer-credit {
   color: #626262;

@@ -1,0 +1,17 @@
+---
+layout: page
+permalink: /news/
+title: "IRI News"
+summary: "Read IRI project news, implementation stories, technical previews, and scientific workflow demonstrations."
+content_page: true
+news_archive: true
+---
+
+<section class="iri-section"><div class="container">
+    <h2>Stories from the IRI community</h2>
+    <p class="iri-section-intro">Implementation experience, scientific workflows, and developments in shared research infrastructure.</p>
+    <ul class="iri-grid" role="list">
+        {% assign news_items = site.news | sort: 'date' | reverse %}
+        {% for item in news_items %}<li>{% include news-card.html item=item %}</li>{% endfor %}
+    </ul>
+</div></section>

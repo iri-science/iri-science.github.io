@@ -2,10 +2,18 @@
 layout: page
 permalink: /documents
 title: Documents
+summary: Find current IRI technical documentation and specification development alongside the archive of reports, background publications, and presentations.
+content_page: true
 ---
 
-<section class="section-sm">
+<section class="iri-section">
     <div class="container">
+        <div class="iri-prose">
+            <h2>Current technical entry points</h2>
+            <p>Use the <a href="https://doe-iri.github.io/iri-facility-api-docs/">published technical documentation</a> for architecture and implementation guidance, and the <a href="https://github.com/doe-iri/iri-facility-api-docs">active specification repository</a> for versioned contracts, RFCs, profiles, and registries. The <a href="{{ '/developers/' | relative_url }}">developer page</a> links to reusable software and examples.</p>
+            <h2>Reports, background documents, and presentations</h2>
+            <p>These publications record the scientific motivation and development of the IRI effort.</p>
+        </div>
         <div class="row">
             {% for d in site.data.documents %}
             <div class="col-lg-4 col-sm-6">
@@ -17,13 +25,13 @@ title: Documents
                         </a>
                     </div>
                     <div class="card-body">
-                        <h2 class="h3 h4 mb-3"><a class="post-title" href="{{d.url}}" target="_blank">{{d.title}}</a></h2>
+                        <h3 class="h4 mb-3"><a class="post-title" href="{{d.url}}" target="_blank">{{d.title}}</a></h3>
                         <ul class="card-meta list-inline">
                             <li class="list-inline-item">
                                 <span>{{d.authors}}</span>
                             </li>
                             <li class="list-inline-item">
-                                <i class="ti-calendar"></i>{{d.year}}
+                                <i class="ti-calendar" aria-hidden="true"></i>{{d.year}}
                             </li>
                         </ul>
                         <p>{{d.abstract | truncatewords: 50}}</p>

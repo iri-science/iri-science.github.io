@@ -1,0 +1,273 @@
+/* Content refresh: scoped components, retaining the shared theme and navigation. */
+:root {
+  --iri-ink: #173e31;
+  --iri-link: #245d47;
+  --iri-tint: #f0f5f2;
+  --iri-line: #c7d7cd;
+}
+.iri-section {
+  padding-block: 3.5rem;
+}
+.iri-section-tint {
+  background: var(--iri-tint);
+}
+.iri-section h2 {
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  margin-block-end: 1.5rem;
+}
+.iri-section h3 {
+  font-size: 1.25rem;
+  margin-block-end: 0.75rem;
+}
+.iri-section :is(h2, h3, p, li) {
+  overflow-wrap: anywhere;
+}
+.iri-section p,
+.iri-section li,
+.iri-hero p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.iri-section :is(a:not(.btn), a:not(.btn):hover) {
+  color: var(--iri-link);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.iri-section :is(a, button):focus-visible,
+.iri-hero :is(a, button):focus-visible {
+  outline: 3px solid #174d87;
+  outline-offset: 4px;
+}
+.iri-prose,
+.iri-section-intro {
+  max-inline-size: 42rem;
+}
+.iri-prose h2 {
+  margin-block-start: 2.5rem;
+}
+.iri-prose > h2:first-child {
+  margin-block-start: 0;
+}
+.iri-grid + .iri-prose:not(.iri-callout),
+.iri-prose + h2 {
+  margin-block-start: 2.5rem;
+}
+.iri-prose h3 {
+  margin-block-start: 1.75rem;
+}
+.iri-section .iri-lead {
+  font-size: 1.25rem;
+}
+.iri-section .card-meta {
+  color: #626262;
+}
+.iri-prose code {
+  color: #7a2743;
+}
+.iri-section-intro {
+  margin-block-end: 1.75rem;
+}
+.iri-eyebrow,
+.iri-context {
+  color: var(--iri-link);
+  font-weight: 700;
+}
+.iri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.iri-grid-features {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+.iri-grid-compact {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+}
+.iri-grid > li,
+.iri-card,
+.iri-news-card {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+.iri-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  block-size: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--iri-line);
+  border-radius: 0.75rem;
+  background: #fff;
+}
+.iri-card h3 {
+  margin: 0;
+}
+.iri-card p {
+  margin: 0;
+}
+.iri-card h3 > a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+}
+.iri-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: auto;
+  padding-block-start: 0.75rem;
+}
+.iri-implementation-list .iri-context {
+  font-size: 0.9375rem;
+}
+.iri-implementation-list:not(.iri-grid-compact) .iri-card {
+  border-block-start: 4px solid #41785f;
+}
+.iri-grid-compact .iri-card {
+  padding: 1rem 1.25rem;
+}
+.iri-section-link {
+  margin-block: 1.5rem 0;
+}
+.iri-actions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-block-start: 1.5rem;
+}
+.iri-actions > a,
+.iri-card-actions > a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+}
+.iri-actions .btn {
+  white-space: normal;
+}
+.iri-status {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #41785f;
+  border-radius: 0.375rem;
+  font-weight: 700;
+}
+.iri-hero {
+  padding-block: 8rem 4rem;
+  color: #fff;
+  background: #173e31;
+}
+.iri-hero-content {
+  max-inline-size: 52rem;
+}
+.iri-hero h1 {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-block: 1.5rem;
+  overflow-wrap: anywhere;
+}
+.iri-hero p {
+  color: #fff;
+  max-inline-size: 74ch;
+}
+.iri-hero .iri-hero-tagline {
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+}
+.iri-hero .iri-button-light {
+  color: #173e31;
+  border-color: #fff;
+  background: #fff;
+}
+.iri-hero .iri-button-outline {
+  color: #fff;
+  border-color: #fff;
+  background: transparent;
+}
+.iri-hero .btn:hover {
+  text-decoration: underline;
+}
+.iri-hero a:focus-visible {
+  outline-color: #fff;
+}
+.iri-page > .banner {
+  padding-block: 8rem 3rem;
+}
+.iri-page > .banner .banner-title {
+  overflow-wrap: anywhere;
+}
+.iri-page > .banner .banner-label {
+  color: #fff;
+}
+.iri-callout {
+  margin-block-start: 3rem;
+  padding-inline-start: 1.5rem;
+  border-inline-start: 4px solid #41785f;
+}
+.iri-case-study {
+  padding-block: 1rem 2rem;
+  border-block-end: 1px solid var(--iri-line);
+}
+.iri-link-list {
+  padding-inline-start: 1.25rem;
+}
+.iri-link-list li {
+  margin-block-end: 1rem;
+}
+.iri-news-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.75rem;
+}
+.iri-news-card > :not(img) {
+  padding-inline: 1.5rem;
+}
+.iri-news-card > header {
+  padding-block-start: 1.5rem;
+}
+.iri-news-card > footer {
+  margin-block-start: auto;
+  padding-block-end: 1.5rem;
+}
+.iri-event-card img {
+  inline-size: 100%;
+  block-size: auto;
+  max-block-size: 12rem;
+  object-fit: contain;
+}
+/* Keep the larger information architecture compact; fit detection still owns collapse. */
+.site-header > .container {
+  max-inline-size: 85rem;
+}
+.site-header .site-nav-link {
+  padding-inline: 0.625rem;
+  font-size: 0.875rem;
+}
+@media (forced-colors: active) {
+  :root {
+    --iri-ink: CanvasText;
+    --iri-link: LinkText;
+    --iri-tint: Canvas;
+    --iri-line: CanvasText;
+  }
+  .iri-hero {
+    background: Canvas;
+    color: CanvasText;
+    border-block: 1px solid CanvasText;
+  }
+  .iri-hero :is(h1, p) {
+    color: CanvasText;
+  }
+  .iri-hero .btn {
+    color: LinkText;
+    background: Canvas;
+    border-color: LinkText;
+  }
+  .iri-hero a:focus-visible {
+    outline-color: Highlight;
+  }
+}

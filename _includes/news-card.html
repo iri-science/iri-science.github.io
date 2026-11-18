@@ -1,0 +1,17 @@
+<article class="card news-card iri-news-card">
+    {% if include.item.image %}
+    {% assign image_path = include.item.image %}
+    {% assign image_start = image_path | slice: 0, 1 %}
+    {% unless image_start == '/' %}{% assign image_path = image_path | prepend: '/images/news/' %}{% endunless %}
+    <img src="{{ image_path | relative_url | escape }}" {% include image-dimensions.html path=image_path %}
+        class="card-img-top{% if include.item.image_fit == 'contain' %} news-image-contain{% endif %}{% if include.item.image_background == 'dark' %} news-image-dark{% endif %}"
+        alt="{{ include.item.image_alt | default: include.item.title | escape }}" loading="lazy">
+    {% endif %}
+    <header>
+        {% if include.item.headline %}<p class="news-kicker">{{ include.item.headline | escape }}</p>{% endif %}
+        <h3 class="h4"><a href="{{ include.item.url | relative_url }}">{{ include.item.title | escape }}</a></h3>
+        <p class="news-meta"><time datetime="{{ include.item.date | date_to_xmlschema }}">{{ include.item.date | date: '%B %-d, %Y' }}</time></p>
+    </header>
+    {% if include.item.summary %}<p>{{ include.item.summary | escape }}</p>{% endif %}
+    <footer><a class="btn btn-outline-primary" href="{{ include.item.url | relative_url }}">Read more<span class="sr-only"> about {{ include.item.title | escape }}</span></a></footer>
+</article>

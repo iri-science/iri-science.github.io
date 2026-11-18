@@ -1,0 +1,29 @@
+---
+layout: page
+permalink: /iri-2-0/
+title: "IRI 2.0: Flexible, Discoverable, and Agentic"
+summary: "Understand the draft IRI Facility API 2.0 resource model, capability discovery, and machine-readable contracts for workflows and authorized AI agents."
+content_page: true
+---
+
+<section class="iri-section"><div class="container iri-prose">
+    <p class="iri-lead">Agentic means software can discover and interpret the capabilities a provider publishes.</p>
+    <p><a class="iri-status" href="https://github.com/doe-iri/iri-facility-api-docs/blob/main/specification-v2/README.md">IRI Facility API 2.0 · Development specification · Draft</a></p>
+    <p>The Facility API is one technical contribution to the wider IRI effort. Its 2.0 development line gives infrastructure a shared way to describe resources, their relationships, and applicable operations. Engagement, trust, policy, and governance remain essential to putting these interfaces to work.</p>
+    <h2 id="flexible">Flexible resource descriptions</h2>
+    <p>A common resource model can represent computing, storage, data, and other scientific services without forcing every provider's details into one universal object. <code>resource_type</code> identifies a resource's semantic type; <code>attributes</code> holds type-specific details. Shared Resource Definition Profiles and a governed vocabulary give those details meaning across implementations.</p>
+    <p>Explore the <a href="https://doe-iri.github.io/iri-facility-api-docs/resource-model/">resource model</a> and <a href="{{ '/profiles/' | relative_url }}">published profiles</a>.</p>
+    <h2 id="discoverable">Discoverable capabilities</h2>
+    <p>Resources advertise relationships and applicable operations through <code>_links</code>. Registered relations let clients follow what a provider actually publishes rather than guess URL conventions. A <code>service-desc</code> link identifies the deployed service description, normally an OpenAPI document describing that running service's methods, inputs, responses, errors, and security requirements.</p>
+    <p>An operation link describes applicability. Executing the operation still depends on current authorization, resource state, and available capacity.</p>
+    <p>Read <a href="https://doe-iri.github.io/iri-facility-api-docs/hypermedia-and-discovery/">Hypermedia and Discovery</a> and <a href="https://doe-iri.github.io/iri-facility-api-docs/service-desc/">Understanding service-desc</a>.</p>
+    <h2 id="agentic">Useful to workflows and authorized AI agents</h2>
+    <p>Explicit semantics and machine-readable operation contracts give conventional workflow tools and authorized AI agents the same discovery process. Software can inspect a resource, interpret published profiles and relations, and validate an intended request against a deployed contract before calling it.</p>
+    <h3>A discovery journey</h3>
+    <p>A client discovers a compute resource, follows its links to related storage, and finds an advertised operation. It consults the deployed OpenAPI description to understand the request and its security requirements, then makes an authorized request. The provider continues to decide whether that request can proceed.</p>
+    <p>See the <a href="https://doe-iri.github.io/iri-facility-api-docs/agentic-discovery/">agentic discovery explanation</a> for the technical model.</p>
+    <h2>Version-specific contracts, independent adoption</h2>
+    <p>The authoritative repository maintains <a href="https://github.com/doe-iri/iri-facility-api-docs/tree/main/specification-v1">the accepted 1.0 specification</a> and <a href="https://github.com/doe-iri/iri-facility-api-docs/tree/main/specification-v2">the 2.0 development specification</a> independently. Each provider chooses its adoption schedule and publishes the contract for its own service. An implementation listing does not establish a shared version or feature set.</p>
+    <p>This overview introduces the model. Use the <a href="https://doe-iri.github.io/iri-facility-api-docs/iri-2.0/">version-specific documentation</a>, <a href="https://doe-iri.github.io/iri-facility-api-docs/architecture/">architecture explanation</a>, and <a href="https://github.com/doe-iri/iri-facility-api-docs">active specification source</a> for implementation work.</p>
+    <div class="iri-actions"><a class="btn btn-primary" href="{{ '/developers/' | relative_url }}">Build with IRI</a><a href="{{ '/community/#contribute-to-the-specification' | relative_url }}">Contribute to the specification</a></div>
+</div></section>

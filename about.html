@@ -2,71 +2,31 @@
 layout: page
 permalink: /about
 title: What is IRI?
+summary: IRI connects research computing, data, instruments, and services through shared interfaces, community collaboration, trust, and local provider control.
+content_page: true
 category: About
 ---
 
-<section class="section-sm">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 mb-5">
-                <p>The Department of Energy's vision for Integrated Research Infrastructure (IRI) is to empower
-                    researchers to meld DOE's world-class research tools, infrastructure and user facilities seamlessly
-                    and securely in novel ways to radically accelerate discovery and innovation. This will be achieved
-                    through the seamless interoperability of research workflows, enabling researchers to gain insight
-                    from observational, experimental and simulated data. Decades of research, pilot projects, and
-                    demonstrations point to the extraordinary promise of IRI but also the intertwined technological,
-                    policy, and sociological challenges of IRI. </p>
-                <p>Initial IRI work is currently focusing on defining the structure of the IRI program, setting up the
-                    appropriate sub-committees, and partnerships with pathfinder projects. As this work evolves and
-                    funding emerges, we expect there to be opportunities for the broader community to engage. For
-                    example, the IRI Management Council expects to convene an annual meeting to bring the community
-                    together to discuss IRI goals and plans. This website describes places where we initially see
-                    opportunities to engage; this will evolve rapidly as we learn from our initial experiences.</p>
-            </div>
-
-            <div class="col-12 mb-5">
-                <h2 class="h3">The Path to IRI</h2>
-                <p>The journey to IRI started in 2020 when ASCR convened the IRI Task Force which explored the framework
-                    required to better integrate DOE resources. It was followed by a series of activities designed to
-                    identify pain points, gather requirements, and build community engagement around the concept of IRI.
-                    The results were published in the <a href="https://doi.org/10.2172/1984466" target="_blank">IRI
-                        Architectural Blueprint Activity Report</a> in 2022.</p>
-                <img src="{{ '/images/path-to-iri.png' | relative_url }}" alt="Timeline of IRI planning activities from 2020 through the 2022 Architectural Blueprint Activity Report." width="1224" height="312" style="height: auto; width: 70%;" /><br />
-                <span style="font-size: 0.8em; font-style: italic;">Timeline of key IRI activities, 2020-2022</span>
-            </div>
-
-            <div class="col-12 mb-5">
-                <h2 class="h3">Pathfinder Projects</h2>
-                <p>A series of discussions with ASCR facilities and leadership put forward a set of science-focused
-                    Pathfinder Projects, which will help drive the near-term scope of IRI work by the ASCR facilities.
-                    These represent currently active projects that operate at one HPC facility, and are actively working
-                    to extend to others. Because IRI is currently unfunded and work on Pathfinder Projects is being done
-                    within the current operational scope of the collaborating facilities, the list of Pathfinder
-                    Projects is limited. As the IRI program becomes more fully staffed in the coming months, the list of
-                    active projects will expand, especially as funding becomes available.</p>
-
-                <h3 class="h4"><a href="/pathfinders/lightsources">Light Sources</a></h3>
-                <ul class="card-meta list-inline mb-3">
-                    <li class="list-inline-item mb-0">
-                        Advanced Light Source (ALS), Advanced Photon Source (APS), Linac Coherent Light
-                        Source (LCLS), National Synchrotron Light Source II (NSLS-II)
-                    </li>
-                </ul>
-
-                <h3 class="h4"><a href="/pathfinders/fusion">Plasma Physics and Fusion Energy</a></h3>
-                <ul class="card-meta list-inline mb-3">
-                    <li class="list-inline-item mb-0">
-                        DIII-D
-                    </li>
-                </ul>
-
-                <h3 class="h4"><a href="/pathfinders/climate">Climate and Earth Science</a></h3>
-                <ul class="card-meta list-inline mb-0">
-                    <li class="list-inline-item mb-0">
-                        Earth System Grid Federation 2 (ESGF2)
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+<section class="iri-section"><div class="container iri-prose">
+    <h2>Scientific discovery across infrastructure</h2>
+    <p>The Department of Energy's Integrated Research Infrastructure (IRI) effort helps researchers combine experimental facilities, observational data, advanced computing, and scientific services in workflows that cross organizational boundaries. The scientific goal is to make these tools work together to accelerate discovery.</p>
+    <p>IRI builds on the computing and networking foundations of DOE's Advanced Scientific Computing Research (ASCR) facilities. Its implementation community now includes a wider range of research infrastructure, bringing new requirements and operational experience to the shared approach.</p>
+    <p>The Facility API provides common interfaces and reusable software within that wider effort. Engagement, trust, policy, and governance help make technical integration useful and sustainable. Participating providers retain control of their resources, access policies, allocations, and operations.</p>
+    <p>Explore <a href="{{ '/implementations/' | relative_url }}">organizations implementing IRI</a>, <a href="{{ '/in-practice/' | relative_url }}">documented practical results</a>, and <a href="{{ '/community/' | relative_url }}">ways to participate</a>.</p>
+    <h2>Connecting IRI and the American Science Cloud</h2>
+    <p>IRI's shared resource and operation interfaces support integration with the American Science Cloud (AmSC). Project context and identity integration can connect workflows with participating services while each provider retains its own authorization decisions. Read the <a href="{{ '/news/2026-amsc-integration/' | relative_url }}">documented AmSC integration story</a>.</p>
+    <h2>Science pathfinders</h2>
+    <p>Science use cases help identify the data movement, computing, coordination, and trust requirements of cross-facility work. The pathfinder pages preserve examples of that scientific motivation.</p>
+    <ul class="iri-link-list">
+        <li><a href="{{ '/pathfinders/lightsources/' | relative_url }}">Light sources</a>: Advanced Light Source, Advanced Photon Source, Linac Coherent Light Source, and National Synchrotron Light Source II.</li>
+        <li><a href="{{ '/pathfinders/fusion/' | relative_url }}">Plasma physics and fusion energy</a>: DIII-D workflows linking experimental and computing resources.</li>
+        <li><a href="{{ '/pathfinders/climate/' | relative_url }}">Climate and Earth science</a>: Earth System Grid Federation 2.</li>
+    </ul>
+    <h2>Early planning: 2020–2022</h2>
+    <p>ASCR convened the IRI Task Force in 2020. Subsequent activities explored integration requirements, pain points, and community needs. The timeline below depicts that early planning period.</p>
+    <figure>
+        <img src="{{ '/images/path-to-iri.png' | relative_url }}" alt="Timeline of early IRI planning activities from 2020 through 2022." width="1224" height="312" loading="lazy" class="img-fluid">
+        <figcaption>Early IRI planning activities, 2020–2022.</figcaption>
+    </figure>
+    <p>The <a href="https://doi.org/10.2172/1984466">Integrated Research Infrastructure Architecture Blueprint Activity final report</a> was published in 2023. The <a href="{{ '/documents.html' | relative_url }}">document archive</a> collects this report and other background publications and presentations.</p>
+</div></section>

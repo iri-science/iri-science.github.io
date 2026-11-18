@@ -7,7 +7,7 @@
 
         {% include site-header.html %}
 
-        <main id="main-content" tabindex="-1">
+        <main id="main-content" tabindex="-1"{% if page.content_page %} class="iri-page"{% endif %}>
             {% include header_page.html %}
 
             {{ content }}
