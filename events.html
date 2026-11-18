@@ -1,0 +1,17 @@
+---
+layout: page
+permalink: /events/
+title: "IRI Events"
+summary: "Find IRI conference sessions, demonstrations, and community events, with links to the original event pages."
+content_page: true
+news_archive: true
+---
+
+<section class="iri-section"><div class="container">
+    <h2>Conferences, demonstrations, and community events</h2>
+    <p class="iri-section-intro">Explore event details and demonstrations, listed from newest to oldest.</p>
+    <ul class="iri-grid" role="list">
+        {% assign events = site.events | sort: 'date' | reverse %}
+        {% for event in events %}<li>{% include event-card.html event=event %}</li>{% endfor %}
+    </ul>
+</div></section>

@@ -1,0 +1,24 @@
+- id: common-workflow
+  title: A common workflow across different systems
+  summary: Shared exercises make discovery, job submission, monitoring, and file access repeatable across independently operated infrastructure.
+  url: /news/2026-alcf-genesis-hackathon/
+  problem: Scientific workflows must navigate different credentials, queues, reservations, and storage paths at each provider.
+  result: The Genesis Mission Hackathon exercise suite was prepared for ALCF, NERSC, OLCF, and an ESnet environment on AWS. The story documents joint ALCF and NERSC testing, a later NERSC retest, and ESnet validation during the event; it does not establish identical coverage at all four providers.
+  artifact_title: Run the public hackathon exercises
+  artifact_url: https://github.com/doe-iri/iri-facility-api-examples/tree/main/genesis_hackathon
+- id: distributed-infrastructure
+  title: Extending IRI to distributed infrastructure
+  summary: NRP implementation work brings the needs of distributed research infrastructure into IRI's shared interfaces and reusable tooling.
+  url: /news/2026-welcome-nrp/
+  problem: Distributed infrastructure brings different operational requirements to a shared facility interface.
+  result: NRP's implementation combines reusable IRI tooling with custom integrations addressing its needs. John Graham's participation in the Interfaces subcommittee brings that implementation experience into the community and lays groundwork for AmSC workflows.
+  artifact_title: Explore the Python reference implementation
+  artifact_url: https://github.com/doe-iri/iri-facility-api-python
+- id: amsc-integration
+  title: Connecting facilities with the American Science Cloud
+  summary: IRI interfaces connect with AmSC project context and identity integration while each provider retains its authorization decisions.
+  url: /news/2026-amsc-integration/
+  problem: Cross-facility workflows need a way to carry project and identity context across independently operated services.
+  result: The documented staging workflow and reference implementation connect AmSC project identity with IRI services. Each provider continues to determine which requests and resources a user may access.
+  artifact_title: Explore the workflow notebooks
+  artifact_url: https://github.com/doe-iri/iri-facility-api-examples

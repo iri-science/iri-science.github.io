@@ -1,0 +1,127 @@
+- id: alcf
+  name: ALCF
+  full_name: Argonne Leadership Computing Facility
+  context: 
+  implementing: true
+  website_url: https://www.alcf.anl.gov/
+  api_versions: []
+  capabilities: []
+  deployment_stage:
+  documentation_url:
+  public_endpoint_url:
+  evidence:
+    - kind: maintainer_statement
+      date: "2026-11-17"
+      note: "Implementation roster supplied for the website refresh."
+
+- id: olcf
+  name: OLCF
+  full_name: Oak Ridge Leadership Computing Facility
+  context: 
+  implementing: true
+  website_url: https://www.olcf.ornl.gov/
+  api_versions: []
+  capabilities: []
+  deployment_stage:
+  documentation_url:
+  public_endpoint_url:
+  evidence:
+    - kind: maintainer_statement
+      date: "2026-11-17"
+      note: "Implementation roster supplied for the website refresh."
+
+- id: nersc
+  name: NERSC
+  full_name: National Energy Research Scientific Computing Center
+  context: 
+  implementing: true
+  website_url: https://www.nersc.gov/
+  api_versions: []
+  capabilities: []
+  deployment_stage:
+  documentation_url:
+  public_endpoint_url:
+  evidence:
+    - kind: maintainer_statement
+      date: "2026-11-17"
+      note: "Implementation roster supplied for the website refresh."
+
+- id: esnet
+  name: ESnet
+  full_name: Energy Sciences Network
+  context: IRI on AWS
+  implementing: true
+  website_url: https://www.es.net/
+  api_versions: []
+  capabilities: []
+  deployment_stage:
+  documentation_url:
+  public_endpoint_url:
+  evidence:
+    - kind: maintainer_statement
+      date: "2026-11-17"
+      note: "Implementation roster supplied for the website refresh."
+
+- id: pnnl
+  name: PNNL
+  full_name: Pacific Northwest National Laboratory
+  context: IRI on Cloud
+  implementing: true
+  website_url: https://www.pnnl.gov/
+  api_versions: []
+  capabilities: []
+  deployment_stage:
+  documentation_url:
+  public_endpoint_url:
+  evidence:
+    - kind: maintainer_statement
+      date: "2026-11-17"
+      note: "Implementation roster supplied for the website refresh."
+
+- id: slac
+  name: SLAC
+  full_name: SLAC National Accelerator Laboratory
+  context: 
+  implementing: true
+  website_url: https://www6.slac.stanford.edu/
+  api_versions: []
+  capabilities: []
+  deployment_stage:
+  documentation_url:
+  public_endpoint_url:
+  evidence:
+    - kind: maintainer_statement
+      date: "2026-11-17"
+      note: "Implementation roster supplied for the website refresh."
+
+- id: nrp
+  name: NRP
+  full_name: National Research Platform
+  context: 
+  implementing: true
+  website_url: https://nrp.ai/
+  api_versions: []
+  capabilities: []
+  deployment_stage:
+  documentation_url:
+  public_endpoint_url:
+  evidence:
+    - kind: maintainer_statement
+      date: "2026-11-17"
+      note: "Implementation roster supplied for the website refresh."
+
+- id: fermilab
+  name: Fermilab
+  full_name: Fermi National Accelerator Laboratory
+  context: 
+  implementing: true
+  website_url: https://www.fnal.gov/
+  api_versions: []
+  capabilities: []
+  deployment_stage:
+  documentation_url:
+  public_endpoint_url:
+  evidence:
+    - kind: maintainer_statement
+      date: "2026-11-17"
+      note: "Implementation roster supplied for the website refresh."

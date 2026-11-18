@@ -9,7 +9,7 @@
     {% if page.registry_identifier %}
     <link rel="canonical" href="{{ page.registry_identifier }}">
     <link rel="alternate" type="text/markdown" href="{{ page.registry_markdown_url }}">
-    {% elsif page.layout == "article" %}
+    {% else %}
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     {% endif %}
 
@@ -23,7 +23,8 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}" media="screen">
-    {% if page.layout == "article" or page.url == "/" %}
+    <link rel="stylesheet" href="{{ '/css/site-content.css' | relative_url }}" media="screen">
+    {% if page.layout == "article" or page.url == "/" or page.news_archive %}
     <link rel="stylesheet" href="{{ '/css/news.css' | relative_url }}" media="screen">
     {% endif %}
 

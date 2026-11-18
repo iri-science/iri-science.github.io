@@ -2,82 +2,20 @@
 layout: page
 permalink: /about/governance
 title: Governance
+summary: Learn how DOE oversight, the IRI Management Council, and technical subcommittees connect scientific priorities, implementation, engagement, and trust.
+content_page: true
 category: About
 ---
 
-<section class="section-sm">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 mb-5">
-                <h2 class="h3">Governance</h2>
-                <p>The U.S. Department of Energy established this Agency Priority Goal for fiscal years 2024-25:
-                    "Building on the <a href="https://doi.org/10.2172/1984466" target="_blank">Integrated Research
-                        Infrastructure (IRI) report</a> published in 2023, the National Laboratories will work with the
-                    Office of Science to establish the IRI program governance, steering model and membership to
-                    accelerate progress towards high priority integrated science goals."</p>
-                <p>DOE’s Office of Science is the lead for establishing and organizing the IRI program for DOE.
-                    Consistent with DOE’s famed national laboratory management model, the IRI program governance has
-                    this structure:</p>
-                <ul>
-                    <li><strong>Federal management and oversight</strong> involving ASCR, the Science Programs, and the
-                        Office of the Deputy Director for Science Programs.</li>
-                    <li><strong>Management Council</strong> organizes and implements the technical and engagement
-                        efforts in the field.</li>
-                    <li><strong>User groups</strong> will provide structured forums for future IRI resource providers
-                        and IRI science teams.</li>
-                </ul>
-                <!-- <p>Governance structure will be inclusive; other offices will be engaged and participate.</p>
-
-                <img src="{{ '/images/iri-structure.png' | relative_url }}" alt="IRI organizational structure, described in the following Management Council and subcommittee sections." width="1806" height="740" style="height: auto; width: 80%;" /><br />
-                <span style="font-size: 0.8em; font-style: italic;">The initial IRI program and management structure.
-                    Federal parts are in blue.</span>
-                <br /><br /><br /> -->
-            </div>
-
-            <div class="col-12 mb-3">
-                <h3 class="h4">IRI Management Council</h3>
-                <p>In FY 2024, the Office of Science directed the ASCR Facilities to stand up the Management Council,
-                    which will expand to include broader participation in FY 2025.</p>
-            </div>
-
-            <div class="col-12 mb-2">
-                <h3 class="h4">Management Council Executive Committee</h3>
-                <p>The Management Council’s Executive Committee provides institutional executive oversight of IRI
-                    efforts in the field. The Executive Committee is initially composed of the directors of the ASCR
-                    Facilities. The Executive Committee’s primary responsibilities working with the Office of Science
-                    federal leaders and program officers to align the program goals objectives with resources. are
-                    clear, achievable, and aligned with IRI goals and facility missions and goals.</p>
-                <p>The Management Council’s Executive Committee will prioritize strategies and allocate both human and
-                    technical resources to achieve program objectives efficiently, subject to DOE approval where
-                    required. The Council will maintain program oversight through annual reviews conducted with the DOE
-                    SC IRI Steering Committee, assessing progress and adjusting strategies as needed. Additionally, the
-                    Council will manage potential risks and challenges while ensuring clear communication and
-                    coordination between the IRI management council, stakeholders, and other relevant parties.</p>
-                <!-- <ul>
-                    <li><strong>Scope Definition:</strong> Define the overall scope of the project based on input from
-                        the DOE SC IRI Steering Committee, ensuring that the objectives are clear, achievable, and
-                        aligned with IRI goals and facility missions and goals.</li>
-                    <li><strong>Approach Prioritization:</strong> Prioritize the activities and approaches recommended
-                        by the leadership group, determining which strategies will best achieve the IRI objectives
-                        efficiently and effectively, given facility mission and resources.</li>
-                    <li><strong>Resource Allocation:</strong> Allocate resources (people, technical) strategically,
-                        ensuring the IRI program has what it needs to succeed while efficiently using organizational
-                        assets. Certain resource allocation decisions will depend on DOE acceptance.</li>
-                    <li><strong>Ongoing Oversight:</strong> Maintain ongoing oversight of the IRI effort, monitoring
-                        progress and ensuring it remains aligned with its defined scope and objectives.</li>
-                    <li><strong>Annual Reviews:</strong> Conduct yearly reviews of the IRI progress, assessing
-                        achievements, challenges, and areas for improvement. Provide constructive feedback and
-                        adjustments to strategies as necessary in collaboration with the DOE SC IRI Steering Committee.
-                    </li>
-                    <li><strong>Risk Management:</strong> Identify potential risks and challenges of the effort,
-                        developing and implementing strategies to mitigate these risks effectively.</li>
-                    <li><strong>Communication and Coordination:</strong> Facilitate open communication and coordination
-                        between the IRI management council, stakeholders, and other relevant parties, ensuring that all
-                        are aligned and informed.</li>
-                </ul> -->
-
-                <div class="row no-gutters mb-5">
-                    {% for m in site.data.structure.executive %}
+<section class="iri-section"><div class="container iri-prose">
+    <h2>Program direction and implementation</h2>
+    <p>DOE's Office of Science leads the organization and governance of the IRI effort. Federal management and oversight involve ASCR, the science programs, and the Office of the Deputy Director for Science Programs. The Management Council organizes technical and engagement efforts in the field.</p>
+    <p>Technical contributions through the Interfaces subcommittee and RFC process complement this program governance. Repository review provides a path to develop shared interfaces; it does not replace DOE program decisions.</p>
+</div></section>
+<section class="iri-section iri-section-tint"><div class="container">
+    <div class="iri-prose"><h2>Management Council Executive Committee</h2>
+    <p>The Executive Committee provides institutional oversight and works with Office of Science leaders and program officers to align IRI objectives, facility missions, and resources. Its responsibilities include setting priorities, coordinating resources subject to DOE approval where required, reviewing progress, and addressing risks.</p></div>
+    <div class="row no-gutters">{% for m in site.data.structure.executive %}
                     <div class="col-lg-3 col-sm-6 author-block">
                         <div class="author-card text-center">
                             <img class="author-image" src="{{ m.photo | escape }}" alt="{{ m.name | escape }}" width="150" height="150" loading="lazy">
@@ -86,17 +24,12 @@ category: About
                             <strong>{{m.role}}</strong>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="col-12 mb-5">
-                <h3 class="h4">Management Council: Leadership Group</h3>
-                <p>The Management Council’s Leadership Group is a conduit for communication of objectives and progress:
-                    it communicates with the leads of the technical and engagement/outreach subcommittees and also
-                    reports into the IRI Executive committee.</p>
-                <div class="row no-gutters mb-5">
-                    {% for m in site.data.structure.leadership %}
+                    {% endfor %}</div>
+</div></section>
+<section class="iri-section"><div class="container">
+    <div class="iri-prose"><h2>Management Council Leadership Group</h2>
+    <p>The Leadership Group connects program objectives and progress with the technical and engagement subcommittees. It coordinates with subcommittee leads and reports to the Executive Committee.</p></div>
+    <div class="row no-gutters">{% for m in site.data.structure.leadership %}
                     <div class="col-lg-3 col-sm-6 author-block">
                         <div class="author-card text-center">
                             <img class="author-image" src="{{ m.photo | escape }}" alt="{{ m.name | escape }}" width="150" height="150" loading="lazy">
@@ -105,59 +38,18 @@ category: About
                             <strong>{{m.role}}</strong>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="col-12 mb-3">
-                <h2 class="h3">Management Council: Technical Subcommittees</h2>
-                <p>Currently, the Management Council’s Leadership Group is actively establishing and organizing its
-                    Technical Subcommittee to provide specialized guidance and oversight for the program's technical
-                    initiatives.</p>
-            </div>
-            <div class="col-12 mb-5">
-                <h3 class="h4">Outreach and Engagement</h3>
-                <p>The role of the Outreach/Engagement Technical subcommittee is to coordinate work being done with the
-                    pathfinder science teams, identify common requirements and communicate to the Leadership team. This
-                    subcommittee is also responsible for broader community engagement, working with science teams who
-                    wish to engage more closely with IRI and bringing them into the IRI framework.</p>
-                <p>Over time, the set of active IRI projects will expand as resources become available. The list of
-                    initial Pathfinder projects is an initial list of projects, not a complete list of projects -
-                    facilities and programs that have an interest in working in this space should work with the
-                    Engagement subcommittee on establishing collaboration contact points, readiness levels,
-                    requirements, and so forth.</p>
-                <a href="/ts/outreach" class="btn btn-outline-primary" style="font-size: 0.8em;">Learn More</a>
-            </div>
-
-            <div class="col-12 mb-5">
-                <h3 class="h4">Interfaces</h3>
-                <p>This IRI Interfaces Technical Subcommittee works to gather requirements, define use cases, and
-                    specify unified
-                    interfaces for the DOE ASCR Facilities. Beyond defining Application Programmable Interfaces (API),
-                    this may include the integration of front end applications (e.g. jupyter notebooks) and
-                    orchestration systems (including hosted orchestration tools).</p>
-                <p>This group is tasked with enhancing the “user experience” for interaction and management of complex
-                    workflows across High-Performance Computing Facilities, High-Performance Data Facilities, and
-                    High-Performance Scientific Network Facilities, thereby facilitating a more cohesive and efficient
-                    research infrastructure. The group will consider applicable standards and build upon the work of
-                    other organizations where available to deliver a reference IRI interface implementation.</p>
-                <a href="/ts/interfaces" class="btn btn-outline-primary" style="font-size: 0.8em;">Learn More</a>
-            </div>
-
-            <div class="col-12 mb-5">
-                <h3 class="h4">Trusted IRI Designs (TRUSTID)</h3>
-                <p>The Integrated Research Infrastructure (IRI) TRUSTID Technical Subcommittee is established to enable
-                    trustworthy and performant execution of cross facility workflows. The TRUSTID subcommittee’s mission
-                    is to create a set of design patterns and policy elements that mitigate risks, safeguard assets, and
-                    enable a trusted environment for transformative open science.</p>
-                <p>Cybersecurity enables open science when security architectures and technologies are effectively
-                    integrated into performant and functional workflow designs from the beginning. It is essential that
-                    security teams and other stakeholders of all sites and facilities engaged in IRI build partnerships
-                    to develop trusted multi-facility workflows that are acceptable to all IRI participants. It is an
-                    explicit goal of the IRI TRUSTID Technical Subcommittee to create the design patterns and
-                    collaborative relationships to bring this about.</p>
-                <a href="/ts/trustid" class="btn btn-outline-primary" style="font-size: 0.8em;">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
+                    {% endfor %}</div>
+</div></section>
+<section class="iri-section iri-section-tint"><div class="container iri-prose">
+    <h2>Technical subcommittees</h2>
+    <h3>Outreach and Engagement</h3>
+    <p>Coordinates scientific use cases and requirements, connects pathfinder teams, and supports wider community participation. <a href="{{ '/ts/outreach/' | relative_url }}">Outreach and Engagement membership and remit</a>.</p>
+    <h3>Interfaces</h3>
+    <p>Gathers cross-facility requirements and develops interoperable interfaces, specifications, and implementation guidance for research facilities and infrastructure partners. This includes connections with researcher-facing tools and orchestration systems. <a href="{{ '/ts/interfaces/' | relative_url }}">Interfaces membership and remit</a>.</p>
+    <h3>Trusted IRI Designs (TRUSTID)</h3>
+    <p>Develops trust and cybersecurity design patterns for performant cross-facility scientific workflows, in collaboration with facility and infrastructure security stakeholders. <a href="{{ '/ts/trustid/' | relative_url }}">TRUSTID membership and remit</a>.</p>
+    <p>Bring implementation experience and proposed technical changes through the <a href="https://doe-iri.github.io/iri-facility-api-docs/rfc-process/">RFC Process</a> and the <a href="{{ '/community/' | relative_url }}">community contribution paths</a>.</p>
+    <h2>Formation history: FY2024–2025</h2>
+    <p>In FY2024, the Office of Science directed the ASCR facilities to establish the Management Council. The FY2024–2025 agency priority goal focused on establishing IRI governance, a steering model, and membership to advance integrated science goals, building on the <a href="https://doi.org/10.2172/1984466">2023 Architecture Blueprint Activity report</a>.</p>
+    <p>Formation plans from this period anticipated broader participation and structured user forums for infrastructure providers and science teams.</p>
+</div></section>

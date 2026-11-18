@@ -1,0 +1,22 @@
+{% assign implementations = site.data.implementations | where: 'implementing', true %}
+<ul class="iri-grid{% if include.compact %} iri-grid-compact{% endif %} iri-implementation-list" role="list">
+    {% for implementation in implementations %}
+    <li{% unless include.compact %} id="implementation-{{ implementation.id }}"{% endunless %} data-implementation-id="{{ implementation.id }}">
+        <article class="iri-card">
+            <h3>{% if include.compact %}<a href="{{ '/implementations/' | relative_url }}#implementation-{{ implementation.id }}">{{ implementation.name | escape }}</a>{% else %}{{ implementation.name | escape }}{% endif %}</h3>
+            {% unless include.compact %}<p>{{ implementation.full_name | escape }}</p>{% endunless %}
+            {% if implementation.context %}<p class="iri-context">{{ implementation.context | escape }}</p>{% endif %}
+            {% unless include.compact %}
+            {% if implementation.deployment_stage %}<p>Deployment: {{ implementation.deployment_stage | escape }}</p>{% endif %}
+            {% if implementation.api_versions.size > 0 %}<p>API versions: {{ implementation.api_versions | join: ', ' | escape }}</p>{% endif %}
+            {% if implementation.capabilities.size > 0 %}<ul>{% for capability in implementation.capabilities %}<li>{{ capability | escape }}</li>{% endfor %}</ul>{% endif %}
+            <footer class="iri-card-actions">
+                {% if implementation.website_url %}<a href="{{ implementation.website_url | escape }}">Visit {{ implementation.name | escape }}</a>{% endif %}
+                {% if implementation.documentation_url %}<a href="{{ implementation.documentation_url | escape }}">{{ implementation.name | escape }} implementation documentation</a>{% endif %}
+                {% if implementation.public_endpoint_url %}<a href="{{ implementation.public_endpoint_url | escape }}">{{ implementation.name | escape }} public API</a>{% endif %}
+            </footer>
+            {% endunless %}
+        </article>
+    </li>
+    {% endfor %}
+</ul>

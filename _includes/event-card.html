@@ -1,0 +1,16 @@
+<article class="iri-card iri-event-card">
+    {% assign event_image = include.event.image %}
+    {% if event_image %}
+    {% unless event_image contains '://' %}
+        {% assign image_start = event_image | slice: 0, 1 %}
+        {% unless image_start == '/' %}{% assign event_image = event_image | prepend: '/' %}{% endunless %}
+    {% endunless %}
+    <img src="{% if event_image contains '://' %}{{ event_image | escape }}{% else %}{{ event_image | relative_url | escape }}{% endif %}"
+        {% include image-dimensions.html path=event_image %}{% if include.event.title == 'Confab25' %} width="1656" height="488"{% endif %}
+        class="{% if include.event.image_background == 'dark' %}news-image-dark{% endif %}"
+        alt="{{ include.event.image_alt | default: include.event.headline | escape }}" loading="lazy">
+    {% endif %}
+    <h3><a href="{{ include.event.url | relative_url }}">{{ include.event.headline | default: include.event.title | escape }}</a></h3>
+    <p>{{ include.event.subtitle | escape }}</p>
+    <p class="news-meta"><time datetime="{{ include.event.date | date_to_xmlschema }}">{{ include.event.date | date: '%B %-d, %Y' }}</time></p>
+</article>

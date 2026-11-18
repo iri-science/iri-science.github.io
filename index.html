@@ -1,167 +1,82 @@
 ---
 layout: default
 permalink: /
+summary: Connect scientific computing, data, instruments, and services across organizations through IRI's shared interfaces, reusable software, and implementation community.
 ---
-
-<section class="section-sm">
+<section class="iri-section">
     <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="h3">DOE's Integrated Research Infrastructure (IRI) seamlessly links DOE's experimental and
-                    observational scientific user facilities, data assets, and advanced computing resources so that
-                    researchers can combine these tools in novel ways that radically accelerate discovery</h2>
-                <p class="col-12" style="margin: auto;">The term ASCR Facilities Ecosystem represents the fact that
-                    ASCR's computing (<a href="https://www.alcf.anl.gov/" target="_blank">ALCF</a>, <a
-                        href="https://www.olcf.ornl.gov/" target="_blank">OLCF</a>, <a href="https://www.nersc.gov/"
-                        target="_blank">NERSC</a>) and networking (<a href="https://www.es.net/"
-                        target="_blank">ESnet</a>) user facilities are not isolated but are richly connected, and
-                    increasingly integrate efforts to enable DOE mission objectives. The ASCR Facilities Ecosystem will
-                    grow to include the <a href="https://hpdf.science/" target="_blank">High Performance Data
-                        Facility</a>, spanning high performance computing, data, and networking infrastructure.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="section-sm mb-5 p-2" style="background-color: #f5f5f5">
-    <div class="container">
-        <div class="row pt-4">
-            <div class="col-lg-3 col-sm-6 text-center mb-4">
-                <h2 class="h3 border-bottom pb-3 mb-3 mx-2">DOE Facility Interface Improvement</h2>
-                <p>IRI is designed to create better interfaces between DOE user facilities</p>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 text-center mb-4">
-                <h2 class="h3 border-bottom pb-3 mb-3 mx-2">Integrated Frameworks for IRI</h2>
-                <p>IRI includes frameworks for integration in software, policy and governance</p>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 text-center mb-4">
-                <h2 class="h3 border-bottom pb-3 mb-3 mx-2">Enhancing Facility Capabilities</h2>
-                <p>IRI layers on top of existing (and future) facility capabilities, to enhance integration and
-                    usability/user experience</p>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 text-center mb-4">
-                <h2 class="h3 border-bottom pb-3 mb-3 mx-2">Managing ASCR Integration</h2>
-                <p>IRI is the means by which we manage the ASCR ecosystem and its further integration that is
-                    required specifically for the Office of Science</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- <section class="section pb-5 pt-0">
-    <div class="container">
-        <div class="col-12">
-            <div class="border-bottom border-default"></div>
-        </div>
-    </div>
-</section> -->
-
-<section class="section pb-0 pt-0" aria-labelledby="latest-news">
-    <div class="container">
-        <h2 id="latest-news" class="h3 mb-4">Latest news</h2>
-        <div class="row">
-            {% assign news_items = site.news | sort: "date" | reverse %}
-            {% for item in news_items %}
-            <div class="col-lg-4 col-md-6 mb-4 d-flex">
-                <article class="card news-card">
-                    {% if item.image %}
-                    {% assign image_path = item.image %}
-                    {% assign image_start = image_path | slice: 0, 1 %}
-                    {% unless image_start == '/' %}
-                        {% assign image_path = image_path | prepend: '/images/news/' %}
-                    {% endunless %}
-                    <img src="{{ image_path | relative_url | escape }}"
-                        {% include image-dimensions.html path=image_path %}
-                        class="card-img-top{% if item.image_fit == 'contain' %} news-image-contain{% endif %}{% if item.image_background == 'dark' %} news-image-dark{% endif %}"
-                        alt="{{ item.image_alt | default: item.title | escape }}" loading="lazy">
-                    {% endif %}
-                    <div class="card-body d-flex flex-column">
-                        {% if item.headline %}<p class="news-kicker mb-2">{{ item.headline | escape }}</p>{% endif %}
-                        <h3 class="h4 mb-3"><a class="post-title" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a></h3>
-                        <p class="news-meta"><time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%B %-d, %Y" }}</time></p>
-                        {% if item.summary %}<p class="news-summary">{{ item.summary | escape }}</p>{% endif %}
-                        <a href="{{ item.url | relative_url }}" class="btn btn-outline-primary mt-auto align-self-start"
-                            aria-label="Read more: {{ item.title | escape }}">Read More</a>
-                    </div>
-                </article>
-            </div>
+        <h2>What IRI makes possible</h2>
+        <ul class="iri-grid iri-grid-features" role="list">
+            {% for feature in site.data.iri_features %}
+            <li><article class="iri-card">
+                <h3><a href="{{ feature.url | relative_url }}">{{ feature.title | escape }}</a></h3>
+                <p>{{ feature.summary | escape }}</p>
+            </article></li>
             {% endfor %}
+        </ul>
+    </div>
+</section>
+<section class="iri-section iri-section-tint">
+    <div class="container iri-prose">
+        <p class="iri-eyebrow">A shared language for infrastructure</p>
+        <h2>IRI 2.0: Flexible, Discoverable, and Agentic</h2>
+        <p><a class="iri-status" href="https://github.com/doe-iri/iri-facility-api-docs/blob/main/specification-v2/README.md">Development specification · Draft</a></p>
+        <p>The IRI Facility API 2.0 development specification gives software a richer way to understand research infrastructure: what resources are, how they connect, and which operations a provider advertises. Shared resource types, profiles, and machine-readable contracts support conventional workflow tools and authorized AI agents.</p>
+        <div class="iri-actions">
+            <a class="btn btn-primary" href="{{ '/iri-2-0/' | relative_url }}">Explore the 2.0 model</a>
+            <a href="https://doe-iri.github.io/iri-facility-api-docs/architecture/">Read the architecture</a>
+            <a href="https://doe-iri.github.io/iri-facility-api-docs/">Technical documentation</a>
         </div>
-
-        <h2 id="events" class="h3 mt-4 mb-4">Events</h2>
-        <div class="row">
+    </div>
+</section>
+<section class="iri-section">
+    <div class="container">
+        <div class="iri-section-intro">
+            <p class="iri-eyebrow">Organizations implementing IRI</p>
+            <h2>A growing implementation community</h2>
+            <p>IRI is being implemented by research organizations spanning leadership computing, cloud environments, and distributed infrastructure. These implementations bring new requirements and practical experience into a shared approach to scientific integration.</p>
+        </div>
+        {% include implementation-list.html compact=true %}
+        <p class="iri-section-link"><a href="{{ '/implementations/' | relative_url }}">Explore the implementation directory</a></p>
+    </div>
+</section>
+<section class="iri-section iri-section-tint">
+    <div class="container">
+        <h2>IRI in Practice</h2>
+        <p class="iri-section-intro">Working integrations turn shared interfaces into repeatable scientific workflows.</p>
+        <ul class="iri-grid" role="list">
+            {% for study in site.data.case_studies %}<li>{% include case-study-card.html study=study %}</li>{% endfor %}
+        </ul>
+        <p class="iri-section-link"><a href="{{ '/in-practice/' | relative_url }}">See the results and reusable artifacts</a></p>
+    </div>
+</section>
+<section class="iri-section">
+    <div class="container">
+        <h2>Start with IRI</h2>
+        <ul class="iri-grid" role="list">
+            <li><article class="iri-card"><h3><a href="{{ '/developers/#workflow-developers' | relative_url }}">Build a scientific workflow</a></h3><p>Find examples, access requirements, and client tooling.</p></article></li>
+            <li><article class="iri-card"><h3><a href="{{ '/developers/#infrastructure-providers' | relative_url }}">Connect infrastructure</a></h3><p>Start with implementation guidance, reference software, and facility adapters.</p></article></li>
+            <li><article class="iri-card"><h3><a href="{{ '/community/#contribute-to-the-specification' | relative_url }}">Shape the specification</a></h3><p>Bring requirements, shared vocabulary, and interoperability feedback.</p></article></li>
+        </ul>
+    </div>
+</section>
+<section class="iri-section iri-section-tint">
+    <div class="container">
+        <h2 id="latest-news">Latest news</h2>
+        <ul class="iri-grid" role="list">
+            {% assign news_items = site.news | sort: 'date' | reverse %}
+            {% for item in news_items limit: 3 %}<li>{% include news-card.html item=item %}</li>{% endfor %}
+        </ul>
+        <p class="iri-section-link"><a href="{{ '/news/' | relative_url }}">All IRI news</a></p>
+    </div>
+</section>
+<section class="iri-section">
+    <div class="container">
+        <h2 id="events">Events</h2>
+        <ul class="iri-grid" role="list">
             {% assign events = site.events | sort: 'date' | reverse %}
-            {% for event in events limit: 2 %}
-            <div class="col-lg-3 mb-5">
-                <article class="card event-card">
-                    <h3 class="card-header h5">{{ event.headline | escape }}</h3>
-                    <div>
-                        {% assign event_image = event.image %}
-                        {% unless event_image contains '://' %}
-                            {% assign image_start = event_image | slice: 0, 1 %}
-                            {% unless image_start == '/' %}{% assign event_image = event_image | prepend: '/' %}{% endunless %}
-                        {% endunless %}
-                        <img src="{% if event_image contains '://' %}{{ event_image | escape }}{% else %}{{ event_image | relative_url | escape }}{% endif %}"
-                            {% include image-dimensions.html path=event_image %}
-                            class="card-img-top{% if event.image_background == 'dark' %} news-image-dark{% endif %}"
-                            alt="{{ event.image_alt | default: event.headline | escape }}" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="h4 mb-3"><a class="post-title" href="{{ event.url | relative_url }}">{{ event.subtitle | escape }}</a></h4>
-                        <ul class="card-meta list-inline">
-                            <li class="list-inline-item">
-                                <i class="ti-calendar" aria-hidden="true"></i>{{ event.date | date_to_string: "ordinal", "US" }}
-                            </li>
-                        </ul>
-                        <a href="{{ event.url | relative_url }}" class="btn btn-outline-primary" aria-label="Read More: {{ event.subtitle | escape }}">Read More</a>
-                    </div>
-                </article>
-            </div>
-            {% endfor %}
-
-            <!-- <div class="col-lg-4 mb-5">
-                <h2 class="h5 section-title">Pathfinder Projects</h2>
-                <article class="card mb-3">
-                    <div class="card-body d-flex">
-                        <div class="ml-3">
-                            <h4><a href="/pathfinders/lightsources" style="color: #000;">Light Sources</a></h4>
-                            <ul class="card-meta list-inline mb-0">
-                                <li class="list-inline-item mb-0">
-                                    Advanced Light Source (ALS), Advanced Photon Source (APS), Linac Coherent Light
-                                    Source (LCLS), National Synchrotron Light Source II (NSLS-II)
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-                <article class="card mb-3">
-                    <div class="card-body d-flex">
-                        <div class="ml-3">
-                            <h4><a href="/pathfinders/fusion" style="color: #000;">Plasma Physics and Fusion Energy</a></h4>
-                            <ul class="card-meta list-inline mb-0">
-                                <li class="list-inline-item mb-0">
-                                    DIII-D
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-                <article class="card mb-2">
-                    <div class="card-body d-flex">
-                        <div class="ml-3">
-                            <h4><a href="/pathfinders/climate" style="color: #000;">Climate and Earth Science</a></h4>
-                            <ul class="card-meta list-inline mb-0">
-                                <li class="list-inline-item mb-0">
-                                    Earth System Grid Federation 2 (ESGF2)
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-            </div> -->
-        </div>
+            {% for event in events limit: 2 %}<li>{% include event-card.html event=event %}</li>{% endfor %}
+        </ul>
+        <p class="iri-section-link"><a href="{{ '/events/' | relative_url }}">All IRI events</a></p>
     </div>
 </section>

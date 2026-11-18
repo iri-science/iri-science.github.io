@@ -3,6 +3,7 @@
 require "nokogiri"
 require "pathname"
 require "uri"
+require "yaml"
 
 site = Pathname.new(ARGV.fetch(0, "_site")).expand_path
 pages = site.glob("**/*.html")
@@ -70,5 +71,46 @@ pages.each do |path|
   failures.each { |failure| errors << "#{path.relative_path_from(site)}: #{failure}" }
 end
 
+landing_routes = %w[iri-2-0 implementations in-practice developers community news events]
+homepage = Nokogiri::HTML(site.join("index.html").read)
+landing_routes.each do |route|
+  output = site.join(route, "index.html")
+  unless output.file?
+    errors << "missing landing route: /#{route}/"
+    next
+  end
+  document = Nokogiri::HTML(output.read)
+  errors << "#{route}: missing page description" if document.at_css('meta[name="description"]')&.[]("content").to_s.strip.empty?
+  errors << "#{route}: missing canonical link" unless document.at_css('link[rel="canonical"]')
+  unless homepage.css("nav a[href]").any? { |link| URI.parse(link["href"]).path.end_with?("/#{route}/") }
+    errors << "landing route missing from primary navigation: /#{route}/"
+  end
+end
+
+data = YAML.safe_load(Pathname(__dir__).join("../_data/implementations.yml").read)
+implementations = data.select { |entry| entry["implementing"] }
+ids = implementations.map { |entry| entry.fetch("id") }
+errors << "implementation IDs must be unique" unless ids.uniq == ids
+required_ids = %w[alcf olcf nersc esnet pnnl slac nrp fermilab]
+errors << "maintainer implementation roster is incomplete" unless (required_ids - ids).empty?
+%w[index.html implementations/index.html].each do |name|
+  next unless site.join(name).file?
+  document = Nokogiri::HTML(site.join(name).read)
+  rendered_ids = document.css("[data-implementation-id]").map { |entry| entry["data-implementation-id"] }
+  errors << "#{name}: roster does not match implementation data" unless rendered_ids.sort == ids.sort
+  implementations.each do |implementation|
+    if name.start_with?("implementations/") && !document.at_css("#implementation-#{implementation['id']}")
+      errors << "#{name}: missing stable anchor for #{implementation['id']}"
+    end
+    implementation.fetch("evidence", []).each do |evidence|
+      note = evidence["note"].to_s
+      errors << "#{name}: internal implementation evidence is visible" unless note.empty? || !document.text.include?(note)
+    end
+  end
+end
+errors << "homepage must show three news items" unless homepage.css(".news-card").length == 3
+errors << "homepage must show two events" unless homepage.css(".iri-event-card").length == 2
+
 abort errors.join("\n") unless errors.empty?
 puts "Validated shared landmarks, navigation, zoom, images, and schedule tables in #{pages.length} pages."
+puts "Validated seven landing routes, curated homepage listings, and the shared implementation roster."

@@ -1,0 +1,23 @@
+---
+layout: page
+permalink: /in-practice/
+title: "IRI in Practice"
+summary: "Explore documented IRI integrations, repeatable exercises, and reusable artifacts connecting scientific workflows across infrastructure."
+content_page: true
+---
+
+<section class="iri-section"><div class="container iri-prose">
+    <p class="iri-lead">Shared interfaces become useful through working integrations and repeatable scientific workflows.</p>
+    <p>These accounts connect an integration problem with a documented result and reusable software. The full stories retain the details of the participating systems and validation.</p>
+    {% for study in site.data.case_studies %}
+    <article class="iri-case-study" id="{{ study.id }}">
+        <h2>{{ study.title | escape }}</h2>
+        <p>{{ study.problem | escape }}</p>
+        <p>{{ study.result | escape }}</p>
+        <div class="iri-actions"><a href="{{ study.url | relative_url }}">Read the full story<span class="sr-only">: {{ study.title | escape }}</span></a><a href="{{ study.artifact_url | escape }}">{{ study.artifact_title | escape }}</a></div>
+    </article>
+    {% endfor %}
+    <h2>Scientific questions guide the integration</h2>
+    <p>IRI's science pathfinders connect the infrastructure work to experimental and observational needs. Explore <a href="{{ '/pathfinders/lightsources/' | relative_url }}">light sources</a>, <a href="{{ '/pathfinders/fusion/' | relative_url }}">plasma physics and fusion energy</a>, and <a href="{{ '/pathfinders/climate/' | relative_url }}">climate and Earth science</a>.</p>
+    <p>For exercises and implementation entry points, <a href="{{ '/developers/' | relative_url }}">build with IRI</a>.</p>
+</div></section>
