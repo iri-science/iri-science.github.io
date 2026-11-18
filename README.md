@@ -78,16 +78,20 @@ with an accessible label and `tabindex="0"` so it can scroll on small screens.
 
 ## Navigation
 
-The shared navigation uses native HTML popovers and a small JavaScript module.
-It switches to an inline layout when the links fit, including after font or
-window size changes. Nested links use ordinary Tab navigation. Browsers without
-CSS anchor positioning use measured dropdown positions; browsers without
-Popover support display the complete navigation in the page. With JavaScript
-disabled, native Popover browsers retain a Menu button with all nested links.
+The shared navigation uses a single hamburger Menu button at every screen size.
+Its native HTML popover supports Escape and outside-click dismissal; a small
+JavaScript module expands nested groups, with ordinary Tab navigation for links.
+CSS anchor positioning aligns the panel with the button, with a fixed-position
+fallback. Browsers without Popover support display the complete navigation in
+the page. With JavaScript disabled, native Popover browsers retain the Menu
+button with all nested links.
 Bootstrap supplies layout styles; its JavaScript, jQuery, and Slick are not
 loaded.
 Navigation links must resolve to an emitted file or a directory containing
 `index.html`; the rendered validator does not assume URL rewriting.
+The shared head appends the same build timestamp to local stylesheets and the
+navigation script. Rebuilding changes these URLs so cached navigation code
+cannot run against newly rendered markup after an update.
 
 
 ## Landing pages and curated content

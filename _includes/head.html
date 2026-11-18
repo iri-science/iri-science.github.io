@@ -21,14 +21,15 @@
     <link rel="stylesheet" href="{{ '/plugins/bootstrap/bootstrap.min.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/plugins/themify-icons/themify-icons.css' | relative_url }}">
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}" media="screen">
-    <link rel="stylesheet" href="{{ '/css/site-content.css' | relative_url }}" media="screen">
+    <!-- Keep local styles and scripts on the same build when browsers cache assets. -->
+    {% assign asset_version = site.time | date: '%Y%m%d%H%M%S' %}
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}?v={{ asset_version }}" media="screen">
+    <link rel="stylesheet" href="{{ '/css/site-content.css' | relative_url }}?v={{ asset_version }}" media="screen">
     {% if page.layout == "article" or page.url == "/" or page.news_archive %}
-    <link rel="stylesheet" href="{{ '/css/news.css' | relative_url }}" media="screen">
+    <link rel="stylesheet" href="{{ '/css/news.css' | relative_url }}?v={{ asset_version }}" media="screen">
     {% endif %}
 
     <!--Favicon-->
     <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
-    <script type="module" src="{{ '/js/script.js' | relative_url }}"></script>
+    <script type="module" src="{{ '/js/script.js' | relative_url }}?v={{ asset_version }}"></script>
 </head>

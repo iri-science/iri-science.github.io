@@ -108,7 +108,7 @@ class PrepareOpenapiTest < Minitest::Test
   def test_navigation_groups_iri_api_resources
     menu = ROOT.join("_includes/menu.html").read
     menu = menu.gsub(/\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}/, '\1')
-    trigger = menu.match(/<button[^>]*id="iri-api-resources-menu"[^>]*popovertarget="([^"]+)"[^>]*>/)
+    trigger = menu.match(/<button[^>]*id="iri-api-resources-menu"[^>]*aria-controls="([^"]+)"[^>]*>/)
     refute_nil trigger
     dropdown = menu.match(/<ul[^>]*id="#{Regexp.escape(trigger[1])}"[^>]*>(.*?)<\/ul>/m)
 
