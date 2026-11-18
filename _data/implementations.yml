@@ -4,15 +4,26 @@
   context: 
   implementing: true
   website_url: https://www.alcf.anl.gov/
-  api_versions: []
+  api_versions:
+    - version: v1
+      targets:
+        - status: Ready
+          url: https://api.alcf.anl.gov/
+    - version: v2
+      targets:
+        - status: In progress
+          url: https://api.alcf.anl.gov/
   capabilities: []
   deployment_stage:
   documentation_url:
-  public_endpoint_url:
   evidence:
     - kind: maintainer_statement
       date: "2026-11-17"
       note: "Implementation roster supplied for the website refresh."
+    - kind: validation_matrix
+      date: "2026-11-18"
+      source: https://github.com/doe-iri/iri-facility-api-docs/blob/main/.github/workflows/matrix-generation.yaml
+      note: "Public API endpoint listed in the IRI endpoint validation matrix."
 
 - id: olcf
   name: OLCF
@@ -20,15 +31,26 @@
   context: 
   implementing: true
   website_url: https://www.olcf.ornl.gov/
-  api_versions: []
+  api_versions:
+    - version: v1
+      targets:
+        - status: Partial
+          url: https://amsc-open.s3m.olcf.ornl.gov/
+    - version: v2
+      targets:
+        - status: In progress
+          url: https://amsc-open.s3m.olcf.ornl.gov/
   capabilities: []
   deployment_stage:
   documentation_url:
-  public_endpoint_url:
   evidence:
     - kind: maintainer_statement
       date: "2026-11-17"
       note: "Implementation roster supplied for the website refresh."
+    - kind: validation_matrix
+      date: "2026-11-18"
+      source: https://github.com/doe-iri/iri-facility-api-docs/blob/main/.github/workflows/matrix-generation.yaml
+      note: "Open API endpoint used for the status links; the matrix also lists https://amsc-moderate.s3m.olcf.ornl.gov/."
 
 - id: nersc
   name: NERSC
@@ -36,31 +58,53 @@
   context: 
   implementing: true
   website_url: https://www.nersc.gov/
-  api_versions: []
+  api_versions:
+    - version: v1
+      targets:
+        - status: Ready
+          url: https://api.iri.nersc.gov/
+    - version: v2
+      targets:
+        - status: In progress
+          url: https://api.iri.nersc.gov/
   capabilities: []
   deployment_stage:
   documentation_url:
-  public_endpoint_url:
   evidence:
     - kind: maintainer_statement
       date: "2026-11-17"
       note: "Implementation roster supplied for the website refresh."
+    - kind: validation_matrix
+      date: "2026-11-18"
+      source: https://github.com/doe-iri/iri-facility-api-docs/blob/main/.github/workflows/matrix-generation.yaml
+      note: "Public API endpoint listed in the IRI endpoint validation matrix."
 
 - id: esnet
   name: ESnet
   full_name: Energy Sciences Network
-  context: IRI on AWS
+  context: IRI on AWS — East
   implementing: true
   website_url: https://www.es.net/
-  api_versions: []
+  api_versions:
+    - version: v1
+      targets:
+        - status: Ready
+          url: https://iri-dev.ppg.es.net/
+    - version: v2
+      targets:
+        - status: Ready
+          url: https://iri-dev.ppg.es.net/
   capabilities: []
   deployment_stage:
   documentation_url:
-  public_endpoint_url:
   evidence:
     - kind: maintainer_statement
       date: "2026-11-17"
       note: "Implementation roster supplied for the website refresh."
+    - kind: validation_matrix
+      date: "2026-11-18"
+      source: https://github.com/doe-iri/iri-facility-api-docs/blob/main/.github/workflows/matrix-generation.yaml
+      note: "East public API endpoint listed in the IRI endpoint validation matrix."
 
 - id: pnnl
   name: PNNL
@@ -68,15 +112,24 @@
   context: IRI on Cloud
   implementing: true
   website_url: https://www.pnnl.gov/
-  api_versions: []
+  api_versions:
+    - version: v1
+      targets:
+        - status: Ready
+          url: https://stage.iri-aws.amsc.pnnl.gov/v1/
+    - version: v2
+      targets:
+        - status: Not yet
   capabilities: []
   deployment_stage:
   documentation_url:
-  public_endpoint_url:
   evidence:
     - kind: maintainer_statement
       date: "2026-11-17"
       note: "Implementation roster supplied for the website refresh."
+    - kind: maintainer_statement
+      date: "2026-11-18"
+      note: "Public API endpoint supplied for the website update."
 
 - id: slac
   name: SLAC
@@ -84,15 +137,25 @@
   context: 
   implementing: true
   website_url: https://www6.slac.stanford.edu/
-  api_versions: []
+  api_versions:
+    - version: v1
+      targets:
+        - status: Onboarding
+          url: https://iri.slac.stanford.edu/
+    - version: v2
+      targets:
+        - status: Not yet
   capabilities: []
   deployment_stage:
   documentation_url:
-  public_endpoint_url:
   evidence:
     - kind: maintainer_statement
       date: "2026-11-17"
       note: "Implementation roster supplied for the website refresh."
+    - kind: validation_matrix
+      date: "2026-11-18"
+      source: https://github.com/doe-iri/iri-facility-api-docs/blob/main/.github/workflows/matrix-generation.yaml
+      note: "Public API endpoint listed in the IRI endpoint validation matrix."
 
 - id: nrp
   name: NRP
@@ -100,15 +163,25 @@
   context: 
   implementing: true
   website_url: https://nrp.ai/
-  api_versions: []
+  api_versions:
+    - version: v1
+      targets:
+        - status: In progress
+          url: https://iri-dev.nrp-nautilus.io/
+    - version: v2
+      targets:
+        - status: In progress
+          url: https://iri-dev.nrp-nautilus.io/
   capabilities: []
   deployment_stage:
   documentation_url:
-  public_endpoint_url:
   evidence:
     - kind: maintainer_statement
       date: "2026-11-17"
       note: "Implementation roster supplied for the website refresh."
+    - kind: maintainer_statement
+      date: "2026-11-18"
+      note: "Public API endpoint supplied for the website update."
 
 - id: fermilab
   name: Fermilab
@@ -116,12 +189,20 @@
   context: 
   implementing: true
   website_url: https://www.fnal.gov/
-  api_versions: []
+  api_versions:
+    - version: v1
+      targets:
+        - status: In progress
+    - version: v2
+      targets:
+        - status: Not yet
   capabilities: []
   deployment_stage:
   documentation_url:
-  public_endpoint_url:
   evidence:
     - kind: maintainer_statement
       date: "2026-11-17"
       note: "Implementation roster supplied for the website refresh."
+    - kind: maintainer_statement
+      date: "2026-11-18"
+      note: "Implementation remains in progress; no public API endpoint is available yet."

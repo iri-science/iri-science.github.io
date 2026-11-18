@@ -120,8 +120,117 @@
   margin-block-start: auto;
   padding-block-start: 0.75rem;
 }
+.iri-card-footer {
+  margin-block-start: auto;
+}
+.iri-card-footer .iri-card-actions {
+  margin-block-start: 0;
+}
+.iri-api-versions {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+}
+.iri-api-version-row {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: start;
+  gap: 0.5rem 0.75rem;
+}
+.iri-api-version-row dt,
+.iri-api-version-row dd {
+  margin: 0;
+}
+.iri-api-version-label {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  color: #5f6872;
+  font-weight: 700;
+}
+.iri-api-statuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.iri-api-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-block-size: 2.75rem;
+  min-inline-size: 7.5rem;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 800;
+  line-height: 1.2;
+  overflow-wrap: normal;
+  text-align: center;
+  text-decoration: none;
+  word-break: normal;
+}
+.iri-api-status-ready,
+.iri-api-status-ready:hover,
+.iri-api-status-ready:focus {
+  color: #fff;
+  background: #087d2d;
+}
+.iri-api-status-partial,
+.iri-api-status-partial:hover,
+.iri-api-status-partial:focus {
+  color: #18212b;
+  background: #f9c74f;
+}
+.iri-api-status-in-progress,
+.iri-api-status-in-progress:hover,
+.iri-api-status-in-progress:focus {
+  color: #064b75;
+  background: #cbe7fa;
+}
+.iri-api-status-onboarding,
+.iri-api-status-onboarding:hover,
+.iri-api-status-onboarding:focus {
+  color: #3d4652;
+  border-color: #cbd1d8;
+  background: #f1f3f6;
+}
+.iri-api-status-not-yet,
+.iri-api-status-not-yet:hover,
+.iri-api-status-not-yet:focus {
+  color: #5f6872;
+  border-color: #cbd1d8;
+  background: #fff;
+}
+.iri-section .iri-api-versions a.iri-api-status {
+  text-decoration: none;
+}
+.iri-section .iri-api-versions a.iri-api-status-ready,
+.iri-section .iri-api-versions a.iri-api-status-ready:hover,
+.iri-section .iri-api-versions a.iri-api-status-ready:focus {
+  color: #fff;
+}
+.iri-section .iri-api-versions a.iri-api-status-partial,
+.iri-section .iri-api-versions a.iri-api-status-partial:hover,
+.iri-section .iri-api-versions a.iri-api-status-partial:focus {
+  color: #18212b;
+}
+.iri-section .iri-api-versions a.iri-api-status-in-progress,
+.iri-section .iri-api-versions a.iri-api-status-in-progress:hover,
+.iri-section .iri-api-versions a.iri-api-status-in-progress:focus {
+  color: #064b75;
+}
+.iri-section .iri-api-versions a.iri-api-status-onboarding,
+.iri-section .iri-api-versions a.iri-api-status-onboarding:hover,
+.iri-section .iri-api-versions a.iri-api-status-onboarding:focus {
+  color: #3d4652;
+}
 .iri-implementation-list .iri-context {
   font-size: 0.9375rem;
+}
+.iri-implementation-list .iri-deployment-stage {
+  color: #5f6872;
+  font-weight: 700;
 }
 .iri-implementation-list:not(.iri-grid-compact) .iri-card {
   border-block-start: 4px solid #41785f;
