@@ -1,0 +1,19 @@
+{% assign api_versions = include.implementation.api_versions %}
+{% if api_versions.size > 0 %}
+<dl class="iri-api-versions" aria-label="{{ include.implementation.name | escape }} API availability">
+    {% for api_version in api_versions %}
+    {% assign primary_target = api_version.targets | first %}
+    <div class="iri-api-version-row" data-api-version="{{ api_version.version | escape }}">
+        <dt>
+            {% if primary_target.url %}<a class="iri-api-version-label" href="{{ primary_target.url | escape }}">IRI {{ api_version.version | escape }}</a>{% else %}<span class="iri-api-version-label">IRI {{ api_version.version | escape }}</span>{% endif %}
+        </dt>
+        <dd class="iri-api-statuses">
+            {% for target in api_version.targets %}
+            {% assign status_class = target.status | slugify %}
+            {% if target.url %}<a class="iri-api-status iri-api-status-{{ status_class }}" data-api-status="{{ status_class }}" href="{{ target.url | escape }}">{% else %}<span class="iri-api-status iri-api-status-{{ status_class }}" data-api-status="{{ status_class }}">{% endif %}{% if target.label %}<span>{{ target.label | escape }}</span><span aria-hidden="true"> · </span>{% endif %}<span>{{ target.status | escape }}</span>{% if target.url %}</a>{% else %}</span>{% endif %}
+            {% endfor %}
+        </dd>
+    </div>
+    {% endfor %}
+</dl>
+{% endif %}

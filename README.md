@@ -109,9 +109,12 @@ retain their separate handling.
   editing names so directory anchors remain stable. Only include official public
   websites; do not infer API endpoints from organization websites.
 - Optional API versions, capabilities, deployment stage, documentation, and
-  public endpoint fields require supporting evidence. Leave unknown values
-  empty; the shared include omits them. Internal evidence notes are not rendered.
-  Add or correct an implementation through a repository change or Contact Us.
+  version availability require supporting evidence. Store v1/v2 availability in
+  `api_versions`, with one or more `targets` containing a slide status, optional
+  environment `label`, and an absolute HTTPS `url` when that version has a
+  public API root. Omit the URL for unavailable versions so their status remains
+  noninteractive. Internal evidence notes are not rendered. Add or correct an
+  implementation through a repository change or Contact Us.
 - `_data/iri_features.yml` contains the four homepage benefit statements and
   their links into the IRI 2.0 overview.
 - `_data/case_studies.yml` supplies the homepage cards and `/in-practice/`.
